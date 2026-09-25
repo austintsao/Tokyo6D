@@ -524,7 +524,7 @@ const ATTRACTIONS = [
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tokyo+Dream+Park+Koto",
         imageUrl: "/mock/images/tokyo-dream-park.jpg", isNew: true, indoorOutdoor: "mixed", lat: 35.6480, lng: 139.8390 },
     { id: "asakusa-rockza", name: "淺草Rockza", nameEn: "Asakusa Rock-za", area: "淺草", emoji: "🎭",
-        description: "淺草六區昭和風情僅存的歌舞劇場之一，以現場歌舞與喜劇演出聞名，是體驗淺草老派娛樂文化的獨特場所。＊限 18 歲以上入場，恕不接待未成年旅客。",
+        description: "淺草六區昭和風情僅存的歌舞劇場之一，以現場歌舞與喜劇演出聞名，是體驗淺草老派娛樂文化的獨特場所。這次排在 16:10–18:00 場次，建議提早 10 分鐘到場購票入場。＊限 18 歲以上入場，恕不接待未成年旅客。",
         duration: "1 小時 30 分鐘", ticketRequired: true, ticketPrice: "票價待確認", reservationRequired: false,
         officialUrl: "https://placeholder.tokyo6d.app/official/asakusa-rockza",
         ticketUrl: "https://placeholder.tokyo6d.app/tickets/asakusa-rockza",
@@ -586,6 +586,13 @@ const ATTRACTIONS = [
         ticketUrl: "https://www.shibuya-scramble-square.com/sky/ticket/",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY",
         imageUrl: "/mock/images/shibuya-sky.jpg", isHot: true, indoorOutdoor: "mixed", lat: 35.6585, lng: 139.7023 },
+    { id: "ghibli-museum", name: "三鷹之森吉卜力美術館", nameEn: "Ghibli Museum, Mitaka", area: "三鷹", emoji: "🌳",
+        description: "宮崎駿親自設計的美術館，展示吉卜力動畫的製作原稿與常設展，館內影像展示室放映只在這裡看得到的原創短片。門票採日期與入場時段指定制（10:00～16:00 每整點一個時段，須在指定時間後 1 小時內入場），入館後可待到 18:00 閉館。這次預訂 14:00 時段。每週二休館。票價大人 ¥1,000，只能透過 Lawson Ticket（ローチケ，有英文網站）或 JTB 購買，現場不賣票；每月 10 日 10:00（日本時間）開賣下個月的票。從 JR 三鷹站南口步行約 15 分鐘，或搭社區巴士約 5 分鐘。",
+        duration: "2 小時", ticketRequired: true, ticketPrice: "大人 ¥1,000（日期＋時段指定，須預購）", reservationRequired: true,
+        officialUrl: "https://www.ghibli-museum.jp/",
+        ticketUrl: "https://l-tike.com/ghibli/",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ghibli+Museum+Mitaka",
+        imageUrl: "/mock/images/ghibli-museum.jpg", isHot: true, indoorOutdoor: "mixed", lat: 35.6962, lng: 139.5704 },
     { id: "koishikawa-korakuen-night", name: "小石川後樂園 夜間點燈「深山光葉」", nameEn: "Koishikawa Korakuen Night Illumination", area: "文京・飯田橋", emoji: "🍁",
         description: "江戶初期水戶德川家的大名庭園，秋季夜間特別開園「深山光葉を楽しむ」以燈光與投影光雕點亮通天橋、園內茶屋與紅葉，並有美食攤位與限定竹燈籠。活動期間 2026/11/13（五）～11/24（二），18:00–21:00（最後入園 20:00），僅開放西門入園；JR／地鐵飯田橋站步行 3–8 分鐘。僅在上述期間出遊才適用，其他日期請改為自由活動。",
         duration: "1 小時 30 分鐘", ticketRequired: true, ticketPrice: "預售 ¥1,000／當日 ¥1,200（國中以上）", reservationRequired: false,
@@ -888,8 +895,8 @@ const DAY_AREA_LABELS = [
     "池袋・新宿", "上野・秋葉原・淺草", "江東區・台場",
 ];
 const DAY_SUBTITLES = [
-    "東京站 → 麻布台之丘 → 六本木", "豐洲 → 銀座 → 小石川後樂園（夜）", "原宿 → 表參道 → 惠比壽 → 澀谷 SHIBUYA SKY",
-    "池袋 → 新宿", "上野 → 秋葉原 → 淺草", "TOKYO DREAM PARK → 羽田機場 ✈ 返台",
+    "東京站 → 麻布台之丘 → 六本木", "豐洲 → 銀座 → 小石川後樂園（夜）→ 銀座晚餐", "原宿 → 表參道 → 惠比壽 → 澀谷 SHIBUYA SKY",
+    "池袋 → 新宿 → 三鷹吉卜力美術館 → 新宿", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 羽田機場 ✈ 返台",
 ];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
 const DEMO_DAYS_TEMPLATE = [
@@ -902,9 +909,9 @@ const DEMO_DAYS_TEMPLATE = [
     { items: [
             { type: "attraction", startTime: "09:30", endTime: "12:00", title: "豐洲千客萬來", location: "豐洲", duration: "2 小時 30 分鐘", attractionId: "toyosu-senkyaku", transportToNext: T("walk", 5) },
             { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "豐洲", duration: "1 小時", restaurantId: "toyosu-sushi-yamato", restaurantAltIds: [], transportToNext: T("train", 20, { transfers: 1 }) },
-            { type: "attraction", startTime: "14:00", endTime: "16:30", title: "銀座街區", location: "銀座", duration: "2 小時 30 分鐘", attractionId: "ginza-district", transportToNext: T("walk", 10) },
-            { type: "meal", startTime: "17:00", endTime: "18:30", title: "晚餐", location: "銀座", duration: "1 小時 30 分鐘", restaurantId: "imahan-ginza", restaurantAltIds: [], transportToNext: T("train", 20, { transfers: 0 }) },
-            { type: "attraction", startTime: "19:00", endTime: "20:30", title: "小石川後樂園 夜間點燈", location: "飯田橋", duration: "1 小時 30 分鐘", attractionId: "koishikawa-korakuen-night" },
+            { type: "attraction", startTime: "14:00", endTime: "17:15", title: "銀座街區", location: "銀座", duration: "3 小時 15 分鐘", attractionId: "ginza-district", transportToNext: T("train", 20, { transfers: 0 }) },
+            { type: "attraction", startTime: "18:00", endTime: "19:30", title: "小石川後樂園 夜間點燈（18:00 開園即入場）", location: "飯田橋", duration: "1 小時 30 分鐘", attractionId: "koishikawa-korakuen-night", transportToNext: T("train", 20, { transfers: 0 }) },
+            { type: "meal", startTime: "20:00", endTime: "21:30", title: "晚餐（最後點餐 20:30）", location: "銀座", duration: "1 小時 30 分鐘", restaurantId: "imahan-ginza", restaurantAltIds: [] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:30", endTime: "11:00", title: "HARAKADO", location: "原宿", duration: "1 小時 30 分鐘", attractionId: "harakado", transportToNext: T("walk", 5) },
@@ -916,18 +923,19 @@ const DEMO_DAYS_TEMPLATE = [
         ] },
     { items: [
             { type: "attraction", startTime: "10:00", endTime: "12:30", title: "池袋 Chiikawa Park", location: "池袋", duration: "2 小時 30 分鐘", attractionId: "chiikawa-park", transportToNext: T("train", 20, { transfers: 0 }) },
-            { type: "meal", startTime: "13:00", endTime: "14:00", title: "午餐", location: "歌舞伎町", duration: "1 小時", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: [], transportToNext: T("walk", 10) },
-            { type: "attraction", startTime: "14:15", endTime: "17:30", title: "新宿街區散策", location: "新宿", duration: "3 小時 15 分鐘", attractionId: "shinjuku-district", transportToNext: T("walk", 8) },
+            { type: "meal", startTime: "13:00", endTime: "13:50", title: "午餐", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: [], transportToNext: T("train", 35, { transfers: 0 }) },
+            { type: "attraction", startTime: "14:30", endTime: "16:30", title: "三鷹之森吉卜力美術館（14:00 時段）", location: "三鷹", duration: "2 小時", attractionId: "ghibli-museum", transportToNext: T("train", 35, { transfers: 0 }) },
+            { type: "attraction", startTime: "17:05", endTime: "17:50", title: "新宿西口散策・思出橫丁", location: "新宿", duration: "45 分鐘", attractionId: "shinjuku-district", transportToNext: T("walk", 8) },
             { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "西新宿", duration: "2 小時", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:00", endTime: "10:00", title: "上野恩賜公園", location: "上野", duration: "1 小時", attractionId: "ueno-park", transportToNext: T("walk", 12) },
             { type: "attraction", startTime: "10:30", endTime: "11:30", title: "秋葉原電器街", location: "秋葉原", duration: "1 小時", attractionId: "akihabara", transportToNext: T("walk", 8) },
             { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "秋葉原", duration: "1 小時", restaurantId: "ameyoko-kaisendon", restaurantAltIds: ["akihabara-yoshoku"], transportToNext: T("train", 15, { transfers: 0 }) },
-            { type: "attraction", startTime: "13:30", endTime: "15:30", title: "江戶東京博物館", location: "兩國", duration: "2 小時", attractionId: "edo-tokyo-museum", transportToNext: T("train", 15, { transfers: 1 }) },
-            { type: "attraction", startTime: "16:00", endTime: "17:30", title: "淺草寺・仲見世通り", location: "淺草", duration: "1 小時 30 分鐘", attractionId: "sensoji", transportToNext: T("walk", 10) },
-            { type: "meal", startTime: "18:00", endTime: "19:30", title: "晚餐", location: "淺草", duration: "1 小時 30 分鐘", restaurantId: "asakusa-imahan", restaurantAltIds: ["asakusa-gyudon"], transportToNext: T("walk", 12) },
-            { type: "attraction", startTime: "20:00", endTime: "21:30", title: "淺草Rockza", location: "淺草", duration: "1 小時 30 分鐘", attractionId: "asakusa-rockza" },
+            { type: "attraction", startTime: "13:20", endTime: "14:30", title: "江戶東京博物館", location: "兩國", duration: "1 小時 10 分鐘", attractionId: "edo-tokyo-museum", transportToNext: T("train", 15, { transfers: 1 }) },
+            { type: "attraction", startTime: "14:50", endTime: "15:50", title: "淺草寺・仲見世通り", location: "淺草", duration: "1 小時", attractionId: "sensoji", transportToNext: T("walk", 10) },
+            { type: "attraction", startTime: "16:10", endTime: "18:00", title: "淺草Rockza（16:10 場次）", location: "淺草", duration: "1 小時 50 分鐘", attractionId: "asakusa-rockza", transportToNext: T("walk", 8) },
+            { type: "meal", startTime: "18:15", endTime: "19:45", title: "晚餐", location: "淺草", duration: "1 小時 30 分鐘", restaurantId: "asakusa-gyudon", restaurantAltIds: ["asakusa-imahan"] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:30", endTime: "12:15", title: "TOKYO DREAM PARK", location: "江東區", duration: "2 小時 45 分鐘", attractionId: "tokyo-dream-park", transportToNext: T("walk", 5) },
