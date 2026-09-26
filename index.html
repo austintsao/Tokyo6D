@@ -927,7 +927,7 @@ const DAY_AREA_LABELS = [
     "池袋・新宿", "上野・秋葉原・淺草", "江東區・台場",
 ];
 const DAY_SUBTITLES = [
-    "CI 100 13:30 抵達成田 → 飯店入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "原宿 → 表參道 → 惠比壽 → 澀谷 SHIBUYA SKY",
+    "CI 100 13:30 抵達成田 → 飯店入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐",
     "池袋 → 新宿 → 三鷹吉卜力美術館 → 新宿", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 成田機場 ✈ CI 105 返台",
 ];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
@@ -955,15 +955,15 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "attraction", startTime: "11:00", endTime: "12:15", title: "表參道", location: "表參道", duration: "1 小時 15 分鐘", attractionId: "omotesando", transportToNext: T("train", 15, { transfers: 1 }) },
             { type: "meal", startTime: "12:30", endTime: "14:00", title: "午餐", location: "惠比壽", duration: "1 小時 30 分鐘", restaurantId: "peter-luger-ginza", restaurantAltIds: [], transportToNext: T("train", 10, { transfers: 0 }) },
             { type: "attraction", startTime: "14:15", endTime: "14:50", title: "澀谷大路口", location: "澀谷", duration: "35 分鐘", attractionId: "shibuya-crossing", transportToNext: T("walk", 5) },
-            { type: "attraction", startTime: "15:00", endTime: "17:30", title: "SHIBUYA SKY（15:00 入場・看夕陽）", location: "澀谷", duration: "2 小時 30 分鐘", attractionId: "shibuya-sky", transportToNext: T("walk", 6) },
-            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "澀谷", duration: "2 小時", restaurantId: "shibuya-scramble-dining", restaurantAltIds: ["shibuya-iekei-ramen"] },
+            { type: "attraction", startTime: "15:00", endTime: "17:30", title: "SHIBUYA SKY（15:00 入場・看夕陽）", location: "澀谷", duration: "2 小時 30 分鐘", attractionId: "shibuya-sky", transportToNext: T("train", 25, { transfers: 0 }) },
+            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐（週日營業）", location: "西新宿", duration: "2 小時", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [] },
         ] },
     { items: [
             { type: "attraction", startTime: "10:00", endTime: "12:30", title: "池袋 Chiikawa Park", location: "池袋", duration: "2 小時 30 分鐘", attractionId: "chiikawa-park", transportToNext: T("train", 20, { transfers: 0 }) },
             { type: "meal", startTime: "13:00", endTime: "13:50", title: "午餐", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: [], transportToNext: T("train", 35, { transfers: 0 }) },
             { type: "attraction", startTime: "14:30", endTime: "16:30", title: "三鷹之森吉卜力美術館（14:00 時段）", location: "三鷹", duration: "2 小時", attractionId: "ghibli-museum", transportToNext: T("train", 35, { transfers: 0 }) },
             { type: "attraction", startTime: "17:05", endTime: "17:50", title: "新宿西口散策・思出橫丁", location: "新宿", duration: "45 分鐘", attractionId: "shinjuku-district", transportToNext: T("walk", 8) },
-            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "西新宿", duration: "2 小時", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [] },
+            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐（思出橫丁串燒）", location: "新宿西口", duration: "2 小時", restaurantId: "omoide-yokocho", restaurantAltIds: ["ushigoro-shinjuku"] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:00", endTime: "10:00", title: "上野恩賜公園", location: "上野", duration: "1 小時", attractionId: "ueno-park", transportToNext: T("walk", 12) },
@@ -2204,7 +2204,7 @@ function HotelAutocompleteInput({ value, onChange, onPlaceSelected }) {
 }
 function PlanningForm({ onSubmit }) {
     const today = toISODate(new Date());
-    const [form, setForm] = useState({ startDate: "", endDate: "", travelers: 2, hotel: "" });
+    const [form, setForm] = useState({ startDate: "2026-11-12", endDate: "2026-11-18", travelers: 2, hotel: "" });
     const [hotelPlace, setHotelPlace] = useState(null);
     const [geoStatus, setGeoStatus] = useState("idle"); // idle | locating | ok | error
     const [origin, setOrigin] = useState(null);
@@ -2443,7 +2443,7 @@ function LoadingPage() {
             raw = localStorage.getItem("tokyo6d:pending-form");
         }
         catch (e) { }
-        const form = raw ? JSON.parse(raw) : { startDate: toISODate(new Date()), endDate: addDays(toISODate(new Date()), 6), travelers: 2, hotel: "東京站" };
+        const form = raw ? JSON.parse(raw) : { startDate: "2026-11-12", endDate: "2026-11-18", travelers: 2, hotel: "東京站" };
         let i = 0;
         const timer = setInterval(() => {
             i += 1;
