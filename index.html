@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tokyo 6D</title>
+<title>東京旅遊 Tokyo Travel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 
 <style>
 /* ============================================================
-   TOKYO 6D — design tokens
+   TOKYO TRAVEL — design tokens
    Light: rice-paper / off-white magazine ground
    Dark:  ink-black with the same hinomaru red accent
    ============================================================ */
@@ -574,7 +574,7 @@ const ATTRACTIONS = [
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Shinjuku+Tokyo",
         imageUrl: "/mock/images/shinjuku-district.jpg", indoorOutdoor: "outdoor", lat: 35.6905, lng: 139.7005 },
     { id: "wakasu-park", name: "若洲海濱公園", nameEn: "Wakasu Marine Park", area: "江東區", emoji: "🌊",
-        description: "緊鄰東京灣的濱海公園，能遠眺彩虹大橋與灣岸風景，設有海濱公路自行車道，適合作為東京六日最後放鬆的句點。",
+        description: "緊鄰東京灣的濱海公園，能遠眺彩虹大橋與灣岸風景，設有海濱公路自行車道，適合作為東京七日最後放鬆的句點。",
         duration: "1 小時 30 分鐘", ticketRequired: false, reservationRequired: false,
         officialUrl: "https://placeholder.tokyo6d.app/official/wakasu-park",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Wakasu+Marine+Park",
@@ -599,6 +599,24 @@ const ATTRACTIONS = [
         officialUrl: "https://www.tokyo-park.or.jp/park/koishikawakorakuen/index.html",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Koishikawa+Korakuen+West+Gate",
         imageUrl: "/mock/images/koishikawa-korakuen-night.jpg", isNew: true, indoorOutdoor: "outdoor", lat: 35.7056, lng: 139.7497 },
+    { id: "narita-arrival", name: "成田機場・入境（CI 100 13:30 抵達）", nameEn: "Narita International Airport", area: "成田機場", emoji: "🛬",
+        description: "中華航空 CI 100 預計 13:30 抵達成田機場第 2 航廈。入境審查與領行李約需 45–60 分鐘，建議出發前先在 Visit Japan Web 填好入境與海關資料，現場出示 QR Code 會比較快。進市區可選：JR 成田特快 N'EX 直達東京站約 60 分鐘；或京成 Skyliner 到上野約 45 分鐘，再轉地鐵到銀座。",
+        duration: "1 小時", ticketRequired: false, reservationRequired: false,
+        officialUrl: "https://www.narita-airport.jp/",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Narita+Airport+Terminal+2",
+        imageUrl: "/mock/images/narita-arrival.jpg", indoorOutdoor: "indoor", lat: 35.7720, lng: 140.3929 },
+    { id: "hotel-checkin", name: "飯店辦理入住・休息", nameEn: "Hotel Check-in", area: "市區飯店", emoji: "🏨",
+        description: "放下行李、稍作休息，準備晚上的銀座燒肉晚餐。一般飯店 15:00 後可入住。",
+        duration: "1 小時 30 分鐘", ticketRequired: false, reservationRequired: false,
+        officialUrl: "https://www.google.com/maps",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ginza+Tokyo+Hotel",
+        imageUrl: "/mock/images/hotel-checkin.jpg", indoorOutdoor: "indoor", lat: 35.6716, lng: 139.7660 },
+    { id: "narita-departure", name: "成田機場・CI 105 返台（15:00 前抵達）", nameEn: "Narita International Airport", area: "成田機場", emoji: "🛫",
+        description: "搭中華航空 CI 105 返回台灣，需在 15:00 前抵達成田機場第 2 航廈辦理報到與退稅。從江東區到成田機場搭機場巴士或電車約 1.5–1.75 小時，建議最晚 12:30 出發。早上退房時，行李可寄放在飯店或車站的投幣式置物櫃；前一天用宅配把大件行李寄到機場也很方便。",
+        duration: "1 小時", ticketRequired: false, reservationRequired: false,
+        officialUrl: "https://www.narita-airport.jp/",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Narita+Airport+Terminal+2",
+        imageUrl: "/mock/images/narita-departure.jpg", indoorOutdoor: "indoor", lat: 35.7720, lng: 140.3929 },
     { id: "haneda-departure", name: "羽田機場・辦理登機返台", nameEn: "Haneda Airport Terminal 3", area: "羽田機場", emoji: "✈️",
         description: "搭乘傍晚班機返回台灣（建議選 17:00–18:30 起飛的班次）。國際線建議起飛前 2–2.5 小時抵達第 3 航廈辦理報到與退稅；從江東區搭計程車約 30 分鐘、電車約 45 分鐘。若班機為成田機場，請提早約 1 小時出發。當天早上先退房，大件行李可寄放飯店或前一天用宅配寄送機場。",
         duration: "2 小時", ticketRequired: false, reservationRequired: false,
@@ -743,7 +761,7 @@ const RESTAURANTS = [
         imageUrl: "/mock/images/dream-park-diner.jpg" },
     { id: "odaiba-ferris-dinner", name: "台場摩天輪夜景餐廳", branch: "台場店", area: "江東區・台場",
         cuisine: "無國界創意料理", priceRange: "¥¥¥¥", rating: 4.4, reservationRequired: true, mealType: ["dinner"],
-        description: "鄰近大摩天輪的夜景餐廳，璀璨夜色下享用晚餐，適合作為六日旅程最後一晚的慶祝收尾。",
+        description: "鄰近大摩天輪的夜景餐廳，璀璨夜色下享用晚餐，適合作為七日旅程最後一晚的慶祝收尾。",
         reservationUrl: "https://placeholder.tokyo6d.app/reserve/odaiba-ferris-dinner",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Odaiba+Ferris+Wheel+Dinner",
         imageUrl: "/mock/images/odaiba-ferris-dinner.jpg" },
@@ -765,6 +783,18 @@ const RESTAURANTS = [
         reservationUrl: "https://www.tablecheck.com/en/gyutannolemon",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Gyutan+no+Lemon+Shinjuku+Honten",
         imageUrl: "/mock/images/gyutan-lemon-honten.jpg" },
+    { id: "iidabashi-quick-dinner", name: "飯田橋站周邊簡單晚餐", branch: "飯田橋・神樂坂一帶", area: "豐洲・銀座",
+        cuisine: "拉麵・定食・蕎麥麵", priceRange: "¥", rating: null, reservationRequired: false, mealType: ["dinner"],
+        description: "賞完夜楓後就近吃簡單晚餐，不必訂位。飯田橋站與神樂坂下一帶有不少拉麵、定食和蕎麥麵店，20:00 前後大多還在營業；時間晚了也可以在車站的便利商店買點東西回飯店。",
+        reservationUrl: "https://www.google.com/maps/search/?api=1&query=Iidabashi+Station+restaurants",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Iidabashi+Station+restaurants",
+        imageUrl: "/mock/images/iidabashi-quick-dinner.jpg" },
+    { id: "shibuya-scramble-dining", name: "SHIBUYA SCRAMBLE SQUARE 餐廳樓層", branch: "澀谷站直結", area: "原宿・表參道・澀谷",
+        cuisine: "多種料理（自由選擇）", priceRange: "¥¥", rating: null, reservationRequired: false, mealType: ["dinner"],
+        description: "看完 SHIBUYA SKY 下樓就到，館內餐廳樓層有日式、西式與甜點等多種選擇，可以依當下想吃的自由決定。中午吃過 Peter Luger，晚餐吃輕一點剛好。",
+        reservationUrl: "https://www.shibuya-scramble-square.com/",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Square",
+        imageUrl: "/mock/images/shibuya-scramble-dining.jpg" },
     { id: "takahashi-ramen-shinjuku", name: "焼きあご塩らー麺 たかはし 新宿本店", branch: "歌舞伎町 KK 大樓 1F", area: "池袋・新宿",
         cuisine: "拉麵（烤飛魚鹽味）", priceRange: "¥", rating: null, reservationRequired: false, mealType: ["lunch", "dinner"],
         description: "以烤飛魚（焼きあご）熬出清爽鹽味湯頭的人氣拉麵店，不必訂位，現場排隊。營業時間很長：平日 11:00、週末假日 10:00 開到隔天 03:00（最後點餐 02:30），年末年始以外全年無休。地址：歌舞伎町 1-27-3 KK 大樓 1F，西武新宿站步行 1 分鐘、JR 新宿站東口步行 5 分鐘。",
@@ -793,6 +823,7 @@ const RESTAURANT_SEARCH_HINTS = {
 };
 const AREA_SEARCH_HINTS = {
     "東京站・麻布台・六本木": ["Azabudai Hills Tokyo", "Roppongi Tokyo"],
+    "成田機場・銀座": ["Ginza Tokyo"],
     "豐洲・銀座": ["Toyosu Tokyo", "Ginza Tokyo"],
     "原宿・表參道・澀谷": ["Harajuku Tokyo", "Shibuya Tokyo"],
     "池袋・新宿": ["Ikebukuro Tokyo", "Shinjuku Tokyo"],
@@ -801,6 +832,7 @@ const AREA_SEARCH_HINTS = {
 };
 const AREA_CENTERS = {
     "東京站・麻布台・六本木": { lat: 35.6636, lng: 139.7421 },
+    "成田機場・銀座": { lat: 35.6716, lng: 139.7660 },
     "豐洲・銀座": { lat: 35.6580, lng: 139.7783 },
     "原宿・表參道・澀谷": { lat: 35.6660, lng: 139.7040 },
     "池袋・新宿": { lat: 35.7100, lng: 139.7050 },
@@ -888,30 +920,35 @@ const MockTicketProvider = {
 };
 /* ============================================================
    MOCK DATA — /src/data/itinerary.ts (reference path)
-   Demo 六日行程：山手線順向 + 分區集中，避免東西來回奔波
+   Demo 七日行程：山手線順向 + 分區集中，避免東西來回奔波
    ============================================================ */
 const DAY_AREA_LABELS = [
-    "東京站・麻布台・六本木", "豐洲・銀座", "原宿・表參道・澀谷",
+    "成田機場・銀座", "東京站・麻布台・六本木", "豐洲・銀座", "原宿・表參道・澀谷",
     "池袋・新宿", "上野・秋葉原・淺草", "江東區・台場",
 ];
 const DAY_SUBTITLES = [
-    "東京站 → 麻布台之丘 → 六本木", "豐洲 → 銀座 → 小石川後樂園（夜）→ 銀座晚餐", "原宿 → 表參道 → 惠比壽 → 澀谷 SHIBUYA SKY",
-    "池袋 → 新宿 → 三鷹吉卜力美術館 → 新宿", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 羽田機場 ✈ 返台",
+    "CI 100 13:30 抵達成田 → 飯店入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "原宿 → 表參道 → 惠比壽 → 澀谷 SHIBUYA SKY",
+    "池袋 → 新宿 → 三鷹吉卜力美術館 → 新宿", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 成田機場 ✈ CI 105 返台",
 ];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
 const DEMO_DAYS_TEMPLATE = [
     { items: [
+            { type: "attraction", startTime: "13:30", endTime: "14:30", title: "抵達成田機場（CI 100）・入境領行李", location: "成田機場", duration: "1 小時", attractionId: "narita-arrival", transportToNext: T("train", 75, { transfers: 1 }) },
+            { type: "attraction", startTime: "16:00", endTime: "17:30", title: "飯店辦理入住・休息", location: "市區", duration: "1 小時 30 分鐘", attractionId: "hotel-checkin", transportToNext: T("train", 20, { transfers: 0 }) },
+            { type: "meal", startTime: "18:30", endTime: "20:30", title: "晚餐", location: "銀座", duration: "2 小時", restaurantId: "ushigoro-s-ginza", restaurantAltIds: [] },
+        ] },
+    { items: [
             { type: "attraction", startTime: "09:00", endTime: "11:30", title: "麻布台之丘", location: "麻布台", duration: "2 小時 30 分鐘", attractionId: "azabudai-hills", transportToNext: T("walk", 8) },
             { type: "meal", startTime: "12:00", endTime: "13:30", title: "午餐", location: "麻布台", duration: "1 小時 30 分鐘", restaurantId: "pizzeria-azabudai", restaurantAltIds: ["roppongi-teishoku"], transportToNext: T("walk", 10) },
             { type: "attraction", startTime: "15:00", endTime: "17:30", title: "teamLab Borderless", location: "麻布台", duration: "2 小時 30 分鐘", attractionId: "teamlab-borderless", transportToNext: T("train", 20, { transfers: 0 }) },
-            { type: "meal", startTime: "18:30", endTime: "20:30", title: "晚餐", location: "銀座", duration: "2 小時", restaurantId: "ushigoro-s-ginza", restaurantAltIds: [] },
+            { type: "meal", startTime: "18:30", endTime: "20:15", title: "晚餐（最後點餐 20:30）", location: "銀座", duration: "1 小時 45 分鐘", restaurantId: "imahan-ginza", restaurantAltIds: [] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:30", endTime: "12:00", title: "豐洲千客萬來", location: "豐洲", duration: "2 小時 30 分鐘", attractionId: "toyosu-senkyaku", transportToNext: T("walk", 5) },
             { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "豐洲", duration: "1 小時", restaurantId: "toyosu-sushi-yamato", restaurantAltIds: [], transportToNext: T("train", 20, { transfers: 1 }) },
             { type: "attraction", startTime: "14:00", endTime: "17:15", title: "銀座街區", location: "銀座", duration: "3 小時 15 分鐘", attractionId: "ginza-district", transportToNext: T("train", 20, { transfers: 0 }) },
-            { type: "attraction", startTime: "18:00", endTime: "19:30", title: "小石川後樂園 夜間點燈（18:00 開園即入場）", location: "飯田橋", duration: "1 小時 30 分鐘", attractionId: "koishikawa-korakuen-night", transportToNext: T("train", 20, { transfers: 0 }) },
-            { type: "meal", startTime: "20:00", endTime: "21:30", title: "晚餐（最後點餐 20:30）", location: "銀座", duration: "1 小時 30 分鐘", restaurantId: "imahan-ginza", restaurantAltIds: [] },
+            { type: "attraction", startTime: "18:00", endTime: "19:30", title: "小石川後樂園 夜間賞楓（18:00 開園即入場）", location: "飯田橋", duration: "1 小時 30 分鐘", attractionId: "koishikawa-korakuen-night", transportToNext: T("walk", 8) },
+            { type: "meal", startTime: "19:45", endTime: "20:30", title: "晚餐從簡", location: "飯田橋", duration: "45 分鐘", restaurantId: "iidabashi-quick-dinner", restaurantAltIds: [] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:30", endTime: "11:00", title: "HARAKADO", location: "原宿", duration: "1 小時 30 分鐘", attractionId: "harakado", transportToNext: T("walk", 5) },
@@ -919,7 +956,7 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "meal", startTime: "12:30", endTime: "14:00", title: "午餐", location: "惠比壽", duration: "1 小時 30 分鐘", restaurantId: "peter-luger-ginza", restaurantAltIds: [], transportToNext: T("train", 10, { transfers: 0 }) },
             { type: "attraction", startTime: "14:15", endTime: "14:50", title: "澀谷大路口", location: "澀谷", duration: "35 分鐘", attractionId: "shibuya-crossing", transportToNext: T("walk", 5) },
             { type: "attraction", startTime: "15:00", endTime: "17:30", title: "SHIBUYA SKY（15:00 入場・看夕陽）", location: "澀谷", duration: "2 小時 30 分鐘", attractionId: "shibuya-sky", transportToNext: T("walk", 6) },
-            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "澀谷", duration: "2 小時", restaurantId: "gyutan-lemon-shibuya", restaurantAltIds: ["shibuya-iekei-ramen"] },
+            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "澀谷", duration: "2 小時", restaurantId: "shibuya-scramble-dining", restaurantAltIds: ["shibuya-iekei-ramen"] },
         ] },
     { items: [
             { type: "attraction", startTime: "10:00", endTime: "12:30", title: "池袋 Chiikawa Park", location: "池袋", duration: "2 小時 30 分鐘", attractionId: "chiikawa-park", transportToNext: T("train", 20, { transfers: 0 }) },
@@ -938,9 +975,9 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "meal", startTime: "18:15", endTime: "19:45", title: "晚餐", location: "淺草", duration: "1 小時 30 分鐘", restaurantId: "asakusa-gyudon", restaurantAltIds: ["asakusa-imahan"] },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:30", endTime: "12:15", title: "TOKYO DREAM PARK", location: "江東區", duration: "2 小時 45 分鐘", attractionId: "tokyo-dream-park", transportToNext: T("walk", 5) },
-            { type: "meal", startTime: "12:15", endTime: "13:15", title: "午餐", location: "江東區", duration: "1 小時", restaurantId: "dream-park-diner", restaurantAltIds: ["odaiba-bayview"], transportToNext: T("train", 45, { transfers: 1 }) },
-            { type: "attraction", startTime: "14:30", endTime: "16:30", title: "羽田機場・搭傍晚班機返台", location: "羽田機場", duration: "2 小時", attractionId: "haneda-departure" },
+            { type: "attraction", startTime: "09:30", endTime: "11:30", title: "TOKYO DREAM PARK", location: "江東區", duration: "2 小時", attractionId: "tokyo-dream-park", transportToNext: T("walk", 5) },
+            { type: "meal", startTime: "11:30", endTime: "12:20", title: "午餐（12:30 前出發往機場）", location: "江東區", duration: "50 分鐘", restaurantId: "dream-park-diner", restaurantAltIds: ["odaiba-bayview"], transportToNext: T("train", 100, { transfers: 1 }) },
+            { type: "attraction", startTime: "14:00", endTime: "15:00", title: "抵達成田機場（15:00 前）・CI 105 報到", location: "成田機場", duration: "1 小時", attractionId: "narita-departure" },
         ] },
 ];
 </script>
@@ -1078,7 +1115,7 @@ function useToast() { return useContext(ToastContext); }
    to localStorage (front-end state only, per Phase-1 spec)
    ============================================================ */
 const TripContext = createContext(null);
-const TRIP_KEY = "tokyo6d:trip:v1";
+const TRIP_KEY = "tokyo6d:trip:v2";
 function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         try {
@@ -2072,8 +2109,8 @@ function Header() {
     return (React.createElement("header", { className: "hairline", style: { position: "sticky", top: "env(safe-area-inset-top, 0px)", zIndex: 30, background: "var(--bg)", borderBottom: "1px solid var(--line)" } },
         React.createElement("div", { className: "container", style: { display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 } },
             React.createElement("a", { href: "#/", onClick: (e) => { e.preventDefault(); navigate("/"); }, style: { display: "flex", alignItems: "baseline", gap: 9, cursor: "pointer" } },
-                React.createElement("span", { className: "font-display", style: { fontSize: "1.36rem", fontWeight: 700, letterSpacing: ".01em" } }, "Tokyo 6D"),
-                React.createElement("span", { style: { fontSize: ".72rem", color: "var(--ink-faint)", display: "none" }, className: "hide-mobile" }, "\u6771\u4EAC\u516D\u65E5\u667A\u6167\u65C5\u904A")),
+                React.createElement("span", { className: "font-display", style: { fontSize: "1.36rem", fontWeight: 700, letterSpacing: ".01em" } }, "Tokyo Travel"),
+                React.createElement("span", { style: { fontSize: ".72rem", color: "var(--ink-faint)", display: "none" }, className: "hide-mobile" }, "\u6771\u4EAC\u4E03\u65E5\u667A\u6167\u65C5\u904A")),
             React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } },
                 React.createElement(ApiStatusBadge, null),
                 React.createElement("nav", { style: { alignItems: "center", gap: 4 }, className: "desktop-nav" },
@@ -2184,7 +2221,7 @@ function PlanningForm({ onSubmit }) {
     return (React.createElement("div", { className: "ticket", style: { padding: "26px 22px 22px" } },
         React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 } },
             React.createElement("div", { className: "font-mono", style: { fontSize: ".7rem", letterSpacing: ".14em", color: "var(--ink-faint)", textTransform: "uppercase" } }, "Trip Planner"),
-            React.createElement("div", { className: "font-mono", style: { fontSize: ".7rem", letterSpacing: ".1em", color: "var(--accent)" } }, "TOKYO \u30FB 6D5N")),
+            React.createElement("div", { className: "font-mono", style: { fontSize: ".7rem", letterSpacing: ".1em", color: "var(--accent)" } }, "TOKYO \u30FB 7D6N")),
         React.createElement("form", { onSubmit: (e) => { e.preventDefault(); onSubmit({ ...form, hotelPlace, origin }); } },
             React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 } },
                 React.createElement("div", null,
@@ -2293,8 +2330,8 @@ function DateMismatchNotice({ onContinue, onDismiss }) {
     return (React.createElement("div", { className: "card fade-up", style: { padding: "16px 18px", display: "flex", gap: 12, alignItems: "flex-start", background: "var(--accent-soft)", borderColor: "var(--accent-soft-line)" } },
         React.createElement(Icon, { name: "info", size: 18, style: { color: "var(--accent)", flexShrink: 0, marginTop: 2 } }),
         React.createElement("div", { style: { flex: 1 } },
-            React.createElement("div", { style: { fontWeight: 700, marginBottom: 4 } }, "\u672C\u7DB2\u7AD9\u76EE\u524D\u4EE5\u516D\u5929\u4E94\u591C\u70BA\u4E3B\u8981\u898F\u5283\u6A21\u5F0F"),
-            React.createElement("div", { style: { fontSize: ".86rem", color: "var(--ink-soft)" } }, "\u662F\u5426\u4F9D\u7167\u4F60\u7684\u65E5\u671F\u8ABF\u6574\u884C\u7A0B\uFF1F\uFF08Demo \u7248\u672C\u4ECD\u6703\u7522\u751F\u5B8C\u6574\u516D\u65E5\u884C\u7A0B\u4F9B\u53C3\u8003\uFF09"),
+            React.createElement("div", { style: { fontWeight: 700, marginBottom: 4 } }, "\u672C\u7DB2\u7AD9\u76EE\u524D\u4EE5\u4E03\u5929\u516D\u591C\u70BA\u4E3B\u8981\u898F\u5283\u6A21\u5F0F"),
+            React.createElement("div", { style: { fontSize: ".86rem", color: "var(--ink-soft)" } }, "\u662F\u5426\u4F9D\u7167\u4F60\u7684\u65E5\u671F\u8ABF\u6574\u884C\u7A0B\uFF1F\uFF08Demo \u7248\u672C\u4ECD\u6703\u7522\u751F\u5B8C\u6574\u4E03\u65E5\u884C\u7A0B\u4F9B\u53C3\u8003\uFF09"),
             React.createElement("div", { style: { display: "flex", gap: 8, marginTop: 12 } },
                 React.createElement("button", { className: "btn btn-primary btn-sm", onClick: onContinue }, "\u7E7C\u7E8C\u898F\u5283"),
                 React.createElement("button", { className: "btn btn-ghost btn-sm", onClick: onDismiss }, "\u8FD4\u56DE\u4FEE\u6539")))));
@@ -2304,7 +2341,7 @@ function HomePage() {
     const toast = useToast();
     const [notice, setNotice] = useState(null);
     function handleSubmit(form) {
-        if (diffDaysInclusive(form.startDate, form.endDate) !== 6) {
+        if (diffDaysInclusive(form.startDate, form.endDate) !== 7) {
             setNotice(form);
             return;
         }
@@ -2323,7 +2360,7 @@ function HomePage() {
                 React.createElement("div", { style: { paddingTop: 8 } },
                     React.createElement("div", { className: "font-mono", style: { fontSize: ".76rem", letterSpacing: ".16em", color: "var(--accent)", textTransform: "uppercase", marginBottom: 16 } }, "Tokyo 6-Day Smart Itinerary"),
                     React.createElement("h1", { className: "font-display balance", style: { fontSize: "clamp(2.4rem, 5vw, 3.6rem)", lineHeight: 1.18, fontWeight: 700, margin: 0 } },
-                        "\u6771\u4EAC\uFF0C\u516D\u5929",
+                        "\u6771\u4EAC\uFF0C\u4E03\u5929",
                         React.createElement("br", null),
                         "\u525B\u525B\u597D\u3002"),
                     React.createElement("p", { className: "balance", style: { fontSize: "1.06rem", color: "var(--ink-soft)", marginTop: 20, maxWidth: 440 } }, "\u8F38\u5165\u65E5\u671F\uFF0C\u7ACB\u5373\u898F\u5283\u6771\u4EAC\u6700\u65B0\u666F\u9EDE\u3001\u7F8E\u98DF\u3001\u4EA4\u901A\u8207\u6BCF\u65E5\u884C\u7A0B\u3002"),
@@ -2335,7 +2372,7 @@ function HomePage() {
                             React.createElement("div", { className: "font-display", style: { fontSize: "1.7rem", fontWeight: 700 } }, "22"),
                             React.createElement("div", { style: { fontSize: ".76rem", color: "var(--ink-faint)" } }, "\u63A8\u85A6\u9910\u5EF3")),
                         React.createElement("div", null,
-                            React.createElement("div", { className: "font-display", style: { fontSize: "1.7rem", fontWeight: 700 } }, "6"),
+                            React.createElement("div", { className: "font-display", style: { fontSize: "1.7rem", fontWeight: 700 } }, "7"),
                             React.createElement("div", { style: { fontSize: ".76rem", color: "var(--ink-faint)" } }, "\u5929\u5B8C\u6574\u52D5\u7DDA")))),
                 React.createElement("div", null,
                     React.createElement(PlanningForm, { onSubmit: handleSubmit }),
@@ -2351,7 +2388,7 @@ function HomePage() {
             React.createElement("div", { className: "scroll-x pop-grid" }, POPULAR_IDS.map(id => (React.createElement(AttractionCardHome, { key: id, id: id, onNavigate: navigate }))))),
         React.createElement("div", { className: "hairline" }),
         React.createElement("section", { className: "container", style: { paddingTop: 52, paddingBottom: 64 } },
-            React.createElement(SectionHeading, { eyebrow: "Why Tokyo 6D", title: "\u70BA\u4EC0\u9EBC\u4F7F\u7528 Tokyo 6D" }),
+            React.createElement(SectionHeading, { eyebrow: "Why Tokyo Travel", title: "\u70BA\u4EC0\u9EBC\u4F7F\u7528 Tokyo Travel" }),
             React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }, className: "why-grid" }, [
                 { icon: "route", title: "聰明路線", body: "依山手線動線與區域分區規劃，減少東京來回奔波，把時間留給景點與美食。" },
                 { icon: "walk", title: "景點＋美食", body: "每個景點都直接安排附近的午餐與晚餐選項，不必臨時煩惱下一餐吃什麼。" },
@@ -2406,7 +2443,7 @@ function LoadingPage() {
             raw = localStorage.getItem("tokyo6d:pending-form");
         }
         catch (e) { }
-        const form = raw ? JSON.parse(raw) : { startDate: toISODate(new Date()), endDate: addDays(toISODate(new Date()), 5), travelers: 2, hotel: "東京站" };
+        const form = raw ? JSON.parse(raw) : { startDate: toISODate(new Date()), endDate: addDays(toISODate(new Date()), 6), travelers: 2, hotel: "東京站" };
         let i = 0;
         const timer = setInterval(() => {
             i += 1;
@@ -2425,8 +2462,8 @@ function LoadingPage() {
     }, []);
     return (React.createElement("div", { style: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 } },
         React.createElement("div", { style: { width: "100%", maxWidth: 380, textAlign: "center" } },
-            React.createElement("div", { className: "font-display", style: { fontSize: "1.9rem", fontWeight: 700, marginBottom: 6 } }, "Tokyo 6D"),
-            React.createElement("div", { style: { fontSize: ".84rem", color: "var(--ink-soft)", marginBottom: 34 } }, "\u6B63\u5728\u70BA\u4F60\u6253\u9020\u5C08\u5C6C\u6771\u4EAC\u516D\u65E5\u884C\u7A0B"),
+            React.createElement("div", { className: "font-display", style: { fontSize: "1.9rem", fontWeight: 700, marginBottom: 6 } }, "Tokyo Travel"),
+            React.createElement("div", { style: { fontSize: ".84rem", color: "var(--ink-soft)", marginBottom: 34 } }, "\u6B63\u5728\u70BA\u4F60\u6253\u9020\u5C08\u5C6C\u6771\u4EAC\u4E03\u65E5\u884C\u7A0B"),
             React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 14, textAlign: "left" } }, LOADING_STEPS.map((s, i) => {
                 const state = done || i < stepIndex ? "done" : i === stepIndex ? "active" : "pending";
                 return (React.createElement("div", { key: i, style: { display: "flex", alignItems: "center", gap: 12, opacity: state === "pending" ? .4 : 1, transition: "opacity .3s" } },
@@ -2436,7 +2473,7 @@ function LoadingPage() {
             })),
             React.createElement("div", { style: { height: 3, background: "var(--surface-2)", borderRadius: 2, marginTop: 30, overflow: "hidden" } },
                 React.createElement("div", { style: { height: "100%", background: "var(--accent)", width: `${((done ? LOADING_STEPS.length : stepIndex) / LOADING_STEPS.length) * 100}%`, transition: "width .5s ease" } })),
-            done && React.createElement("div", { className: "fade-up font-display", style: { marginTop: 26, fontSize: "1.15rem", fontWeight: 700, color: "var(--accent)" } }, "\u4F60\u7684\u6771\u4EAC\u516D\u65E5\u884C\u7A0B\u5B8C\u6210\uFF01"))));
+            done && React.createElement("div", { className: "fade-up font-display", style: { marginTop: 26, fontSize: "1.15rem", fontWeight: 700, color: "var(--accent)" } }, "\u4F60\u7684\u6771\u4EAC\u4E03\u65E5\u884C\u7A0B\u5B8C\u6210\uFF01"))));
 }
 </script>
 
@@ -2599,14 +2636,14 @@ function TimelineMealRow({ item, dayNumber, index, total, onNavigate }) {
 /* ============================================================
    /src/pages/ItineraryOverviewPage.tsx + DayTimelinePage.tsx
    ============================================================ */
-const DAY_EMOJI = ["🗼", "🍁", "🚦", "🐹", "⛩️", "✈️"];
+const DAY_EMOJI = ["🛬", "🗼", "🍁", "🚦", "🐹", "⛩️", "🛫"];
 function TripHeaderBar({ trip, onReplanAll, compact }) {
     const toast = useToast();
     return (React.createElement("div", { className: "hairline", style: { background: "var(--surface)", borderBottom: "1px solid var(--line)" } },
         React.createElement("div", { className: "container", style: { padding: compact ? "18px 20px" : "26px 20px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 16, flexWrap: "wrap" } },
             React.createElement("div", null,
-                React.createElement("div", { className: "font-mono", style: { fontSize: ".7rem", letterSpacing: ".1em", color: "var(--accent)", textTransform: "uppercase", marginBottom: 6 } }, "\u6771\u4EAC\u516D\u65E5\u667A\u6167\u65C5\u904A"),
-                !compact && React.createElement("h1", { className: "font-display", style: { fontSize: "1.5rem", fontWeight: 700, margin: 0, marginBottom: 10 } }, "\u6211\u7684\u6771\u4EAC\u516D\u65E5\u884C\u7A0B"),
+                React.createElement("div", { className: "font-mono", style: { fontSize: ".7rem", letterSpacing: ".1em", color: "var(--accent)", textTransform: "uppercase", marginBottom: 6 } }, "\u6771\u4EAC\u4E03\u65E5\u667A\u6167\u65C5\u904A"),
+                !compact && React.createElement("h1", { className: "font-display", style: { fontSize: "1.5rem", fontWeight: 700, margin: 0, marginBottom: 10 } }, "\u6211\u7684\u6771\u4EAC\u4E03\u65E5\u884C\u7A0B"),
                 React.createElement("div", { style: { display: "flex", gap: 18, flexWrap: "wrap", fontSize: ".84rem", color: "var(--ink-soft)" } },
                     React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5 } },
                         React.createElement(Icon, { name: "calendar", size: 14 }),
@@ -2620,7 +2657,7 @@ function TripHeaderBar({ trip, onReplanAll, compact }) {
                     React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5 } },
                         React.createElement(Icon, { name: "building", size: 14 }),
                         trip.hotel))),
-            React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => { onReplanAll(); toast("已重新規劃完整六日行程", { icon: "refresh" }); } },
+            React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => { onReplanAll(); toast("已重新規劃完整七日行程", { icon: "refresh" }); } },
                 React.createElement(Icon, { name: "refresh", size: 14 }),
                 " \u91CD\u65B0\u898F\u5283"))));
 }
@@ -2629,7 +2666,7 @@ function ItineraryOverviewPage() {
     const trip = useTrip();
     if (!trip.trip) {
         return (React.createElement("div", { className: "container", style: { paddingTop: 70 } },
-            React.createElement(EmptyState, { icon: "route", title: "\u5C1A\u672A\u7522\u751F\u884C\u7A0B", sub: "\u56DE\u5230\u9996\u9801\u8F38\u5165\u65E5\u671F\u8207\u4F4F\u5BBF\u5730\u9EDE\uFF0C\u7ACB\u5373\u7522\u751F\u4F60\u7684\u6771\u4EAC\u516D\u65E5\u667A\u6167\u884C\u7A0B\u3002", action: React.createElement("button", { className: "btn btn-primary", onClick: () => navigate("/") },
+            React.createElement(EmptyState, { icon: "route", title: "\u5C1A\u672A\u7522\u751F\u884C\u7A0B", sub: "\u56DE\u5230\u9996\u9801\u8F38\u5165\u65E5\u671F\u8207\u4F4F\u5BBF\u5730\u9EDE\uFF0C\u7ACB\u5373\u7522\u751F\u4F60\u7684\u6771\u4EAC\u4E03\u65E5\u667A\u6167\u884C\u7A0B\u3002", action: React.createElement("button", { className: "btn btn-primary", onClick: () => navigate("/") },
                     React.createElement(Icon, { name: "sparkles", size: 14 }),
                     " \u524D\u5F80\u898F\u5283") })));
     }
@@ -2637,7 +2674,7 @@ function ItineraryOverviewPage() {
     return (React.createElement("div", null,
         React.createElement(TripHeaderBar, { trip: t, onReplanAll: trip.regenerateAll }),
         React.createElement("div", { className: "container", style: { paddingTop: 36, paddingBottom: 56 } },
-            React.createElement(SectionHeading, { eyebrow: "6-Day Overview", title: "\u516D\u65E5\u884C\u7A0B\u7E3D\u89BD", sub: "\u9EDE\u64CA\u5361\u7247\u67E5\u770B\u7576\u5929\u5B8C\u6574\u6642\u9593\u8EF8" }),
+            React.createElement(SectionHeading, { eyebrow: "7-Day Overview", title: "\u4E03\u65E5\u884C\u7A0B\u7E3D\u89BD", sub: "\u9EDE\u64CA\u5361\u7247\u67E5\u770B\u7576\u5929\u5B8C\u6574\u6642\u9593\u8EF8" }),
             React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }, className: "overview-grid" }, t.days.map(d => (React.createElement("button", { key: d.dayNumber, className: "card fade-up", style: { textAlign: "left", overflow: "hidden", cursor: "pointer" }, onClick: () => navigate(`/itinerary/${d.dayNumber}`) },
                 React.createElement("div", { className: "ph-img", "data-em": DAY_EMOJI[d.dayNumber - 1], style: { aspectRatio: "16/10" } },
                     React.createElement("div", { style: { position: "absolute", left: 12, top: 12, zIndex: 1 } },
@@ -2687,7 +2724,7 @@ function HotelOriginRow({ trip, day }) {
             " \u5C0E\u822A"))));
 }
 function DayTabs({ current, onSelect }) {
-    return (React.createElement("div", { className: "scroll-x", style: { padding: "14px 0" } }, [1, 2, 3, 4, 5, 6].map(n => (React.createElement("button", { key: n, onClick: () => onSelect(n), className: "font-mono", style: { padding: "7px 16px", borderRadius: 999, fontSize: ".8rem", fontWeight: 700, flexShrink: 0,
+    return (React.createElement("div", { className: "scroll-x", style: { padding: "14px 0" } }, [1, 2, 3, 4, 5, 6, 7].map(n => (React.createElement("button", { key: n, onClick: () => onSelect(n), className: "font-mono", style: { padding: "7px 16px", borderRadius: 999, fontSize: ".8rem", fontWeight: 700, flexShrink: 0,
             border: "1px solid " + (n === current ? "var(--accent)" : "var(--line-strong)"),
             background: n === current ? "var(--accent)" : "transparent",
             color: n === current ? "var(--accent-ink)" : "var(--ink-soft)" } },
@@ -2700,7 +2737,7 @@ function DayTimelinePage({ dayNumber }) {
     const toast = useToast();
     if (!trip.trip) {
         return (React.createElement("div", { className: "container", style: { paddingTop: 70 } },
-            React.createElement(EmptyState, { icon: "route", title: "\u5C1A\u672A\u7522\u751F\u884C\u7A0B", sub: "\u56DE\u5230\u9996\u9801\u8F38\u5165\u65E5\u671F\u8207\u4F4F\u5BBF\u5730\u9EDE\uFF0C\u7ACB\u5373\u7522\u751F\u4F60\u7684\u6771\u4EAC\u516D\u65E5\u667A\u6167\u884C\u7A0B\u3002", action: React.createElement("button", { className: "btn btn-primary", onClick: () => navigate("/") },
+            React.createElement(EmptyState, { icon: "route", title: "\u5C1A\u672A\u7522\u751F\u884C\u7A0B", sub: "\u56DE\u5230\u9996\u9801\u8F38\u5165\u65E5\u671F\u8207\u4F4F\u5BBF\u5730\u9EDE\uFF0C\u7ACB\u5373\u7522\u751F\u4F60\u7684\u6771\u4EAC\u4E03\u65E5\u667A\u6167\u884C\u7A0B\u3002", action: React.createElement("button", { className: "btn btn-primary", onClick: () => navigate("/") },
                     React.createElement(Icon, { name: "sparkles", size: 14 }),
                     " \u524D\u5F80\u898F\u5283") })));
     }
@@ -2741,7 +2778,7 @@ function DayTimelinePage({ dayNumber }) {
                     React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => { trip.regenerateDay(day.dayNumber); toast(`已重新規劃 DAY ${day.dayNumber} 的行程`, { icon: "refresh" }); } },
                         React.createElement(Icon, { name: "refresh", size: 13 }),
                         " \u91CD\u65B0\u898F\u5283\u4ECA\u5929"),
-                    React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => { trip.regenerateAll(); toast("已重新規劃完整六日行程", { icon: "refresh" }); } },
+                    React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => { trip.regenerateAll(); toast("已重新規劃完整七日行程", { icon: "refresh" }); } },
                         React.createElement(Icon, { name: "refresh", size: 13 }),
                         " \u91CD\u65B0\u898F\u5283\u5168\u90E8")),
                 directions.error && React.createElement("div", { style: { marginTop: 12 } },
@@ -2822,10 +2859,10 @@ function AddToDayControl({ onAdd, label = "加入我的行程" }) {
     const toast = useToast();
     const [day, setDay] = useState(1);
     if (!trip.trip) {
-        return React.createElement("div", { style: { fontSize: ".82rem", color: "var(--ink-faint)" } }, "\u5C1A\u672A\u7522\u751F\u884C\u7A0B\uFF0C\u8ACB\u5148\u56DE\u9996\u9801\u898F\u5283\u516D\u65E5\u884C\u7A0B\u3002");
+        return React.createElement("div", { style: { fontSize: ".82rem", color: "var(--ink-faint)" } }, "\u5C1A\u672A\u7522\u751F\u884C\u7A0B\uFF0C\u8ACB\u5148\u56DE\u9996\u9801\u898F\u5283\u4E03\u65E5\u884C\u7A0B\u3002");
     }
     return (React.createElement("div", { style: { display: "flex", gap: 8, alignItems: "center" } },
-        React.createElement("select", { className: "input-field", style: { width: 110 }, value: day, onChange: e => setDay(Number(e.target.value)) }, [1, 2, 3, 4, 5, 6].map(n => React.createElement("option", { key: n, value: n },
+        React.createElement("select", { className: "input-field", style: { width: 110 }, value: day, onChange: e => setDay(Number(e.target.value)) }, [1, 2, 3, 4, 5, 6, 7].map(n => React.createElement("option", { key: n, value: n },
             "DAY ",
             n))),
         React.createElement("button", { className: "btn btn-primary", style: { flex: 1 }, onClick: () => { onAdd(day); toast(`已加入 DAY ${day} 行程`, { icon: "checkCircle" }); } },
@@ -3133,7 +3170,7 @@ function MapPage() {
     const [config] = useConfig();
     if (!trip.trip) {
         return (React.createElement("div", { className: "container", style: { paddingTop: 70 } },
-            React.createElement(EmptyState, { icon: "map", title: "\u5C1A\u672A\u7522\u751F\u884C\u7A0B", sub: "\u56DE\u5230\u9996\u9801\u8F38\u5165\u65E5\u671F\u8207\u4F4F\u5BBF\u5730\u9EDE\uFF0C\u7ACB\u5373\u7522\u751F\u4F60\u7684\u6771\u4EAC\u516D\u65E5\u667A\u6167\u884C\u7A0B\u3002", action: React.createElement("button", { className: "btn btn-primary", onClick: () => navigate("/") }, "\u524D\u5F80\u898F\u5283") })));
+            React.createElement(EmptyState, { icon: "map", title: "\u5C1A\u672A\u7522\u751F\u884C\u7A0B", sub: "\u56DE\u5230\u9996\u9801\u8F38\u5165\u65E5\u671F\u8207\u4F4F\u5BBF\u5730\u9EDE\uFF0C\u7ACB\u5373\u7522\u751F\u4F60\u7684\u6771\u4EAC\u4E03\u65E5\u667A\u6167\u884C\u7A0B\u3002", action: React.createElement("button", { className: "btn btn-primary", onClick: () => navigate("/") }, "\u524D\u5F80\u898F\u5283") })));
     }
     const day = trip.trip.days.find(d => d.dayNumber === dayNumber);
     return (React.createElement("div", { className: "container", style: { paddingTop: 28, paddingBottom: 64 } },
@@ -3182,7 +3219,7 @@ function MorePage() {
             confirmClear ? (React.createElement(ConfirmInline, { label: "\u78BA\u5B9A\u6E05\u9664\u76EE\u524D\u7684\u884C\u7A0B\u8CC7\u6599\uFF1F", onCancel: () => setConfirmClear(false), onConfirm: () => { trip.clearTrip(); setConfirmClear(false); toast("已清除行程資料"); } })) : (React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => setConfirmClear(true), style: { alignSelf: "flex-start" } }, "\u6E05\u9664\u76EE\u524D\u884C\u7A0B")),
             confirmFav ? (React.createElement(ConfirmInline, { label: "\u78BA\u5B9A\u6E05\u9664\u5168\u90E8\u6536\u85CF\uFF1F", onCancel: () => setConfirmFav(false), onConfirm: () => { writeFavorites({ attractions: [], restaurants: [] }); setConfirmFav(false); toast("已清除收藏清單"); } })) : (React.createElement("button", { className: "btn btn-outline btn-sm", onClick: () => setConfirmFav(true), style: { alignSelf: "flex-start" } }, "\u6E05\u9664\u5168\u90E8\u6536\u85CF"))),
         React.createElement("div", { style: { fontSize: ".78rem", color: "var(--ink-faint)", lineHeight: 1.9 } },
-            React.createElement("div", null, "Tokyo 6D\u30FB\u6771\u4EAC\u516D\u65E5\u667A\u6167\u65C5\u904A\u3000v2.0\uFF08\u7B2C\u4E8C\u968E\u6BB5\uFF1A\u771F\u5BE6 API\uFF09"),
+            React.createElement("div", null, "Tokyo Travel\u30FB\u6771\u4EAC\u4E03\u65E5\u667A\u6167\u65C5\u904A\u3000v2.0\uFF08\u7B2C\u4E8C\u968E\u6BB5\uFF1A\u771F\u5BE6 API\uFF09"),
             React.createElement("div", null, "Google Maps\uFF0FPlaces\uFF0FWeather \u5DF2\u4E32\u63A5\u771F\u5BE6\u8CC7\u6599\uFF1B\u627E\u4E0D\u5230\u53EF\u9760\u8CC7\u6599\u6642\u4E00\u5F8B\u6E05\u695A\u6A19\u793A Demo\uFF0C\u7D55\u4E0D\u7DE8\u9020\u7968\u50F9\u3001\u8A55\u50F9\u6216\u71DF\u696D\u6642\u9593\u3002"))));
 }
 /* ============================================================
