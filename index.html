@@ -593,6 +593,12 @@ const ATTRACTIONS = [
         ticketUrl: "https://www.wbstudiotour.jp/ticket-information/price/",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Warner+Bros+Studio+Tour+Tokyo",
         imageUrl: "/mock/images/wb-studio-tour-tokyo.jpg", isNew: true, isHot: true, indoorOutdoor: "indoor", lat: 35.7425, lng: 139.6496 },
+    { id: "alpen-tokyo", name: "Alpen TOKYO", nameEn: "Alpen TOKYO", area: "新宿", emoji: "🛍️",
+        description: "號稱日本最大級的綜合運動用品旗艦店，B2F 到 8F 共 10 層樓，集合 Sports Depo（運動）、Alpen Outdoors（戶外露營）、Golf 5（高爾夫）三種賣場。營業時間平日 11:00–22:00、週末假日 10:00–22:00。地址：新宿 3-23-7 ユニカビル，JR 新宿站東口步行約 1 分鐘；從歌舞伎町的たかはし拉麵走過來約 7 分鐘。免稅手續請在店內確認。",
+        duration: "2 小時", ticketRequired: false, reservationRequired: false,
+        officialUrl: "https://store.alpen-group.jp/Form/RealShop/ShopDetail.aspx?rsid=5201",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Alpen+TOKYO+Shinjuku",
+        imageUrl: "/mock/images/alpen-tokyo.jpg", isNew: true, indoorOutdoor: "indoor", lat: 35.6918, lng: 139.7020 },
     { id: "ghibli-museum", name: "三鷹之森吉卜力美術館", nameEn: "Ghibli Museum, Mitaka", area: "三鷹", emoji: "🌳",
         description: "宮崎駿親自設計的美術館，展示吉卜力動畫的製作原稿與常設展，館內影像展示室放映只在這裡看得到的原創短片。門票採日期與入場時段指定制（10:00～16:00 每整點一個時段，須在指定時間後 1 小時內入場），入館後可待到 18:00 閉館。這次預訂 14:00 時段。每週二休館。票價大人 ¥1,000，只能透過 Lawson Ticket（ローチケ，有英文網站）或 JTB 購買，現場不賣票；每月 10 日 10:00（日本時間）開賣下個月的票。從 JR 三鷹站南口步行約 15 分鐘，或搭社區巴士約 5 分鐘。",
         duration: "2 小時", ticketRequired: true, ticketPrice: "大人 ¥1,000（日期＋時段指定，須預購）", reservationRequired: true,
@@ -941,7 +947,7 @@ const DAY_AREA_LABELS = [
 ];
 const DAY_SUBTITLES = [
     "CI 100 13:30 抵達成田 → 飯店入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐",
-    "哈利波特製作之旅（全天）→ 新宿簡易晚餐", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 成田機場 ✈ CI 105 返台",
+    "哈利波特製作之旅（全天）→ 新宿拉麵 → Alpen TOKYO 購物", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 成田機場 ✈ CI 105 返台",
 ];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
 const DEMO_DAYS_TEMPLATE = [
@@ -975,7 +981,8 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "attraction", startTime: "09:30", endTime: "12:00", title: "哈利波特製作之旅（09:30 入場）", location: "豐島園", duration: "2 小時 30 分鐘", attractionId: "wb-studio-tour-tokyo", transportToNext: T("walk", 2) },
             { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐（館內）", location: "豐島園", duration: "1 小時", restaurantId: "wb-studio-food-hall", restaurantAltIds: [], transportToNext: T("walk", 2) },
             { type: "attraction", startTime: "13:00", endTime: "17:00", title: "哈利波特製作之旅（下半場・商店）", location: "豐島園", duration: "4 小時", attractionId: "wb-studio-tour-tokyo", transportToNext: T("train", 30, { transfers: 0 }) },
-            { type: "meal", startTime: "17:40", endTime: "18:30", title: "簡易晚餐（拉麵）", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: ["omoide-yokocho"] },
+            { type: "meal", startTime: "17:40", endTime: "18:30", title: "簡易晚餐（拉麵）", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: ["omoide-yokocho"], transportToNext: T("walk", 7) },
+            { type: "attraction", startTime: "18:40", endTime: "20:40", title: "Alpen TOKYO 購物（營業到 22:00）", location: "新宿東口", duration: "2 小時", attractionId: "alpen-tokyo" },
         ] },
     { items: [
             { type: "attraction", startTime: "09:00", endTime: "10:00", title: "上野恩賜公園", location: "上野", duration: "1 小時", attractionId: "ueno-park", transportToNext: T("walk", 12) },
