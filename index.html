@@ -586,6 +586,13 @@ const ATTRACTIONS = [
         ticketUrl: "https://www.shibuya-scramble-square.com/sky/ticket/",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY",
         imageUrl: "/mock/images/shibuya-sky.jpg", isHot: true, indoorOutdoor: "mixed", lat: 35.6585, lng: 139.7023 },
+    { id: "wb-studio-tour-tokyo", name: "華納兄弟東京影城－哈利波特製作之旅", nameEn: "Warner Bros. Studio Tour Tokyo - The Making of Harry Potter", area: "練馬・豐島園", emoji: "🪄",
+        description: "以電影實際使用的場景、道具與服裝重現哈利波特世界的室內設施，可以走進霍格華茲大廳、斜角巷、九又四分之三月台與霍格華茲特快車，還能喝奶油啤酒。只看展示約 4 小時，含拍照、用餐與購物約 5–6 小時，排一整天剛好。門票採日期與入場時間指定制，須事先在官網購買；2026 年 7 月起大人 ¥6,600–7,300（依日期浮動）。營業日與時間依日期不同，訂票前請確認官網的運營日曆。館內有 Food Hall 與 Backlot Café 可吃午餐，除密封飲料外不可攜帶外食。交通：都營大江戶線或西武線「豐島園」站步行 2–4 分鐘，從新宿約 30 分鐘。",
+        duration: "6 小時 30 分鐘", ticketRequired: true, ticketPrice: "大人 ¥6,600–7,300（依日期，須預購）", reservationRequired: true,
+        officialUrl: "https://www.wbstudiotour.jp/",
+        ticketUrl: "https://www.wbstudiotour.jp/ticket-information/price/",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Warner+Bros+Studio+Tour+Tokyo",
+        imageUrl: "/mock/images/wb-studio-tour-tokyo.jpg", isNew: true, isHot: true, indoorOutdoor: "indoor", lat: 35.7425, lng: 139.6496 },
     { id: "ghibli-museum", name: "三鷹之森吉卜力美術館", nameEn: "Ghibli Museum, Mitaka", area: "三鷹", emoji: "🌳",
         description: "宮崎駿親自設計的美術館，展示吉卜力動畫的製作原稿與常設展，館內影像展示室放映只在這裡看得到的原創短片。門票採日期與入場時段指定制（10:00～16:00 每整點一個時段，須在指定時間後 1 小時內入場），入館後可待到 18:00 閉館。這次預訂 14:00 時段。每週二休館。票價大人 ¥1,000，只能透過 Lawson Ticket（ローチケ，有英文網站）或 JTB 購買，現場不賣票；每月 10 日 10:00（日本時間）開賣下個月的票。從 JR 三鷹站南口步行約 15 分鐘，或搭社區巴士約 5 分鐘。",
         duration: "2 小時", ticketRequired: true, ticketPrice: "大人 ¥1,000（日期＋時段指定，須預購）", reservationRequired: true,
@@ -783,6 +790,12 @@ const RESTAURANTS = [
         reservationUrl: "https://www.tablecheck.com/en/gyutannolemon",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Gyutan+no+Lemon+Shinjuku+Honten",
         imageUrl: "/mock/images/gyutan-lemon-honten.jpg" },
+    { id: "wb-studio-food-hall", name: "影城館內餐廳（Food Hall／Backlot Café）", branch: "華納兄弟東京影城內", area: "池袋・新宿",
+        cuisine: "輕食・主題餐點", priceRange: "¥¥", rating: null, reservationRequired: false, mealType: ["lunch"],
+        description: "在館內解決午餐，不必出場。Food Hall 有正餐，Backlot Café 可以喝奶油啤酒。12:00–14:00 最擠，建議提早到 11:30 或延後到 14:00 再吃。",
+        reservationUrl: "https://www.wbstudiotour.jp/",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Warner+Bros+Studio+Tour+Tokyo",
+        imageUrl: "/mock/images/wb-studio-food-hall.jpg" },
     { id: "iidabashi-quick-dinner", name: "飯田橋站周邊簡單晚餐", branch: "飯田橋・神樂坂一帶", area: "豐洲・銀座",
         cuisine: "拉麵・定食・蕎麥麵", priceRange: "¥", rating: null, reservationRequired: false, mealType: ["dinner"],
         description: "賞完夜楓後就近吃簡單晚餐，不必訂位。飯田橋站與神樂坂下一帶有不少拉麵、定食和蕎麥麵店，20:00 前後大多還在營業；時間晚了也可以在車站的便利商店買點東西回飯店。",
@@ -928,7 +941,7 @@ const DAY_AREA_LABELS = [
 ];
 const DAY_SUBTITLES = [
     "CI 100 13:30 抵達成田 → 飯店入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐",
-    "池袋 → 新宿 → 三鷹吉卜力美術館 → 新宿", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 成田機場 ✈ CI 105 返台",
+    "哈利波特製作之旅（全天）→ 新宿簡易晚餐", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "TOKYO DREAM PARK → 成田機場 ✈ CI 105 返台",
 ];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
 const DEMO_DAYS_TEMPLATE = [
@@ -959,11 +972,10 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐（週日營業）", location: "西新宿", duration: "2 小時", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [] },
         ] },
     { items: [
-            { type: "attraction", startTime: "10:00", endTime: "12:30", title: "池袋 Chiikawa Park", location: "池袋", duration: "2 小時 30 分鐘", attractionId: "chiikawa-park", transportToNext: T("train", 20, { transfers: 0 }) },
-            { type: "meal", startTime: "13:00", endTime: "13:50", title: "午餐", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: [], transportToNext: T("train", 35, { transfers: 0 }) },
-            { type: "attraction", startTime: "14:30", endTime: "16:30", title: "三鷹之森吉卜力美術館（14:00 時段）", location: "三鷹", duration: "2 小時", attractionId: "ghibli-museum", transportToNext: T("train", 35, { transfers: 0 }) },
-            { type: "attraction", startTime: "17:05", endTime: "17:50", title: "新宿西口散策・思出橫丁", location: "新宿", duration: "45 分鐘", attractionId: "shinjuku-district", transportToNext: T("walk", 8) },
-            { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐（思出橫丁串燒）", location: "新宿西口", duration: "2 小時", restaurantId: "omoide-yokocho", restaurantAltIds: ["ushigoro-shinjuku"] },
+            { type: "attraction", startTime: "09:30", endTime: "12:00", title: "哈利波特製作之旅（09:30 入場）", location: "豐島園", duration: "2 小時 30 分鐘", attractionId: "wb-studio-tour-tokyo", transportToNext: T("walk", 2) },
+            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐（館內）", location: "豐島園", duration: "1 小時", restaurantId: "wb-studio-food-hall", restaurantAltIds: [], transportToNext: T("walk", 2) },
+            { type: "attraction", startTime: "13:00", endTime: "17:00", title: "哈利波特製作之旅（下半場・商店）", location: "豐島園", duration: "4 小時", attractionId: "wb-studio-tour-tokyo", transportToNext: T("train", 30, { transfers: 0 }) },
+            { type: "meal", startTime: "17:40", endTime: "18:30", title: "簡易晚餐（拉麵）", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: ["omoide-yokocho"] },
         ] },
     { items: [
             { type: "attraction", startTime: "09:00", endTime: "10:00", title: "上野恩賜公園", location: "上野", duration: "1 小時", attractionId: "ueno-park", transportToNext: T("walk", 12) },
@@ -2636,7 +2648,7 @@ function TimelineMealRow({ item, dayNumber, index, total, onNavigate }) {
 /* ============================================================
    /src/pages/ItineraryOverviewPage.tsx + DayTimelinePage.tsx
    ============================================================ */
-const DAY_EMOJI = ["🛬", "🗼", "🍁", "🚦", "🐹", "⛩️", "🛫"];
+const DAY_EMOJI = ["🛬", "🗼", "🍁", "🚦", "🪄", "⛩️", "🛫"];
 function TripHeaderBar({ trip, onReplanAll, compact }) {
     const toast = useToast();
     return (React.createElement("div", { className: "hairline", style: { background: "var(--surface)", borderBottom: "1px solid var(--line)" } },
