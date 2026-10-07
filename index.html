@@ -216,7 +216,6 @@ img{display:block;}
 </head>
 <body>
 
-
 <div id="root"></div>
 
 <script>
@@ -587,7 +586,7 @@ const ATTRACTIONS = [
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY",
         imageUrl: "/mock/images/shibuya-sky.jpg", isHot: true, indoorOutdoor: "mixed", lat: 35.6585, lng: 139.7023 },
     { id: "wb-studio-tour-tokyo", name: "華納兄弟東京影城－哈利波特製作之旅", nameEn: "Warner Bros. Studio Tour Tokyo - The Making of Harry Potter", area: "練馬・豐島園", emoji: "🪄",
-        description: "以電影實際使用的場景、道具與服裝重現哈利波特世界的室內設施，可以走進霍格華茲大廳、斜角巷、九又四分之三月台與霍格華茲特快車，還能喝奶油啤酒。只看展示約 4 小時，含拍照、用餐與購物約 5–6 小時，排一整天剛好。門票採日期與入場時間指定制，須事先在官網購買；2026 年 7 月起大人 ¥6,600–7,300（依日期浮動）。營業日與時間依日期不同，訂票前請確認官網的運營日曆。館內有 Food Hall 與 Backlot Café 可吃午餐，除密封飲料外不可攜帶外食。交通：從池袋搭西武池袋線（在練馬轉乘豐島線）到「豐島園」站約 15–20 分鐘，下車步行約 2 分鐘；從新宿搭都營大江戶線約 30 分鐘。",
+        description: "以電影實際使用的場景、道具與服裝重現哈利波特世界的室內設施，可以走進霍格華茲大廳、斜角巷、九又四分之三月台與霍格華茲特快車，還能喝奶油啤酒。11/13 是冬季活動「Magical Winter（魔法冬天）」首日，霍格華茲大廳等場景換上雪景與聖誕裝飾；當天 09:00 開園，建議 08:30 從池袋出發、預購 09:00 入場時段。只看展示約 4 小時，含拍照、用餐與購物約 5–6 小時，排一整天剛好。門票採日期與入場時間指定制，須事先在官網購買；2026 年 7 月起大人 ¥6,600–7,300（依日期浮動）。營業日與時間依日期不同，訂票前請確認官網的運營日曆。館內有 Food Hall 與 Backlot Café 可吃午餐，除密封飲料外不可攜帶外食。交通：從池袋搭西武池袋線（在練馬轉乘豐島線）到「豐島園」站約 15–20 分鐘，下車步行約 2 分鐘；從新宿搭都營大江戶線約 30 分鐘。",
         duration: "6 小時 30 分鐘", ticketRequired: true, ticketPrice: "大人 ¥6,600–7,300（依日期，須預購）", reservationRequired: true,
         officialUrl: "https://www.wbstudiotour.jp/",
         ticketUrl: "https://www.wbstudiotour.jp/ticket-information/price/",
@@ -966,7 +965,7 @@ const DAY_AREA_LABELS = [
     "豐洲・銀座", "上野・秋葉原・淺草", "池袋・成田機場",
 ];
 const DAY_SUBTITLES = [
-    "CI 100 13:30 抵達成田 → 池袋 hisoca 入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐", "哈利波特製作之旅（全天）→ 新宿拉麵 → Alpen TOKYO 購物",
+    "CI 100 13:30 抵達成田 → 池袋 hisoca 入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐", "哈利波特製作之旅 Magical Winter 首日（09:00 開園・全天）→ 新宿拉麵 → Alpen TOKYO 購物",
     "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "退房 → 雜司谷鬼子母神 → 西武池袋購物・午餐 → N'EX 到成田 ✈ CI 105",
 ];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
@@ -991,7 +990,7 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "西新宿", duration: "2 小時", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [] },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:30", endTime: "12:00", title: "哈利波特製作之旅（09:30 入場）", location: "豐島園", duration: "2 小時 30 分鐘", attractionId: "wb-studio-tour-tokyo", transportToNext: T("walk", 2) },
+            { type: "attraction", startTime: "09:00", endTime: "12:00", title: "哈利波特製作之旅（09:00 開園入場・Magical Winter 首日）", location: "豐島園", duration: "3 小時", attractionId: "wb-studio-tour-tokyo", transportToNext: T("walk", 2) },
             { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐（館內）", location: "豐島園", duration: "1 小時", restaurantId: "wb-studio-food-hall", restaurantAltIds: [], transportToNext: T("walk", 2) },
             { type: "attraction", startTime: "13:00", endTime: "17:00", title: "哈利波特製作之旅（下半場・商店）", location: "豐島園", duration: "4 小時", attractionId: "wb-studio-tour-tokyo", transportToNext: T("train", 30, { transfers: 0 }) },
             { type: "meal", startTime: "17:40", endTime: "18:30", title: "簡易晚餐（拉麵）", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: ["omoide-yokocho"], transportToNext: T("walk", 7) },
