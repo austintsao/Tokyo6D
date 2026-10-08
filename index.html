@@ -986,57 +986,58 @@ const DAY_SUBTITLES = [
     "CI 100 13:30 抵達成田 → 池袋 Dormy Inn 入住 → 銀座燒肉晚餐", "麻布台之丘 → teamLab → 銀座今半晚餐", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐", "哈利波特製作之旅 Magical Winter 首日（09:30 入場・全天）→ 新宿拉麵 → Alpen TOKYO 購物",
     "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "上野 → 秋葉原 → 兩國 → 淺草寺 → Rockza", "退房 → 雜司谷鬼子母神 → 西武池袋購物・午餐 → Skyliner 到成田 ✈ CI 105",
 ];
+const DAY_HOTEL_LEGS = [{ "out": null, "back": { "time": "20:30", "min": 30, "brief": "丸之內線 銀座→池袋", "route": "銀座站搭東京地鐵丸之內線往池袋約 18 分（不轉車）→ 池袋站東口步行約 10 分回飯店。", "fare": "約 ¥210" } }, { "out": { "time": "08:20", "min": 40, "brief": "丸之內線→日比谷線 神谷町", "route": "步行約 10 分到池袋站 → 丸之內線往荻窪方向到「霞關」約 21 分 → 轉日比谷線往中目黑方向 2 站到「神谷町」約 3 分（直結麻布台之丘）。", "fare": "約 ¥260" }, "back": { "time": "20:15", "min": 30, "brief": "丸之內線 銀座→池袋", "route": "銀座站搭丸之內線往池袋約 18 分 → 池袋站東口步行約 10 分回飯店。", "fare": "約 ¥210" } }, { "out": { "time": "09:05", "min": 25, "brief": "副都心線 池袋→明治神宮前", "route": "步行約 10 分到池袋站 → 東京地鐵副都心線（急行／通勤急行）往澀谷方向到「明治神宮前〈原宿〉」約 10 分 → 7 號出口出站就是 HARAKADO。", "fare": "約 ¥210" }, "back": { "time": "20:00", "min": 30, "brief": "JR 新宿→池袋", "route": "步行約 10 分到 JR 新宿站 → 埼京線／湘南新宿線往池袋約 5 分（山手線約 9 分）→ 池袋站東口步行約 10 分回飯店。", "fare": "約 ¥180–200" } }, { "out": null, "back": { "time": "20:40", "min": 25, "brief": "副都心線 新宿三丁目→池袋", "route": "步行約 3 分到東京地鐵副都心線「新宿三丁目」站 → 往池袋方向約 9 分（不轉車）→ 步行約 10 分回飯店。也可搭 JR 新宿→池袋 埼京線約 5 分。", "fare": "約 ¥180" } }, { "out": { "time": "08:40", "min": 50, "brief": "有樂町線 池袋→豐洲→百合海鷗號", "route": "步行約 10 分到池袋站 → 東京地鐵有樂町線往新木場方向到「豐洲」約 30 分（不轉車）→ 轉百合海鷗號 1 站到「市場前」約 3 分 → 步行約 3 分到千客萬來。", "fare": "約 ¥260＋¥190" }, "back": { "time": "20:30", "min": 25, "brief": "丸之內線 後樂園→池袋", "route": "東京地鐵丸之內線「後樂園」站往池袋方向約 10 分（不轉車）→ 步行約 10 分回飯店。", "fare": "約 ¥180" } }, { "out": { "time": "08:30", "min": 30, "brief": "JR 山手線 池袋→上野", "route": "步行約 10 分到 JR 池袋站 → 山手線往田端・上野方向到「上野」約 17 分 → 公園口出站就是上野恩賜公園。", "fare": "約 ¥210" }, "back": { "time": "19:45", "min": 40, "brief": "銀座線→上野→JR 山手線", "route": "東京地鐵銀座線「淺草」→「上野」約 5 分 → 轉 JR 山手線往池袋約 17 分 → 步行約 10 分回飯店。累了可搭計程車，約 25–30 分、約 ¥4,000–5,000。", "fare": "約 ¥180＋¥210" } }, { "out": { "time": "09:00", "min": 15, "brief": "都電荒川線 東池袋四丁目→鬼子母神前", "route": "退房、行李寄放櫃台 → 步行約 15–20 分到鬼子母神；或搭都電荒川線（東京櫻電車）「東池袋四丁目」→「鬼子母神前」2 站約 5 分。", "fare": "約 ¥170（步行免費）" }, "back": null }];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
 const DEMO_DAYS_TEMPLATE = [
     { items: [
-            { type: "attraction", startTime: "13:30", endTime: "14:30", title: "抵達成田機場（CI 100）・入境領行李", location: "成田機場", duration: "1 小時", attractionId: "narita-arrival", transportToNext: T("train", 90, { transfers: 0 }) },
-            { type: "attraction", startTime: "16:00", endTime: "17:30", title: "Dormy Inn 池袋 入住・休息", location: "池袋", duration: "1 小時 30 分鐘", attractionId: "hotel-checkin", transportToNext: T("train", 30, { transfers: 0 }) },
+            { type: "attraction", startTime: "13:30", endTime: "14:30", title: "抵達成田機場（CI 100）・入境領行李", location: "成田機場", duration: "1 小時", attractionId: "narita-arrival", transportToNext: T("train", 75, { transfers: 1, brief: "Skyliner→日暮里→山手線→池袋", route: "京成 Skyliner「空港第2ビル」→「日暮里」約 36 分（全車指定席）→ 站內轉 JR 山手線往池袋方向約 16 分 → 池袋站東口步行約 10 分到 Dormy Inn。備案：JR 成田特快 N'EX 直達池袋約 1 小時 40–50 分（班次少）。", fare: "約 ¥2,790" }) },
+            { type: "attraction", startTime: "16:00", endTime: "17:30", title: "Dormy Inn 池袋 入住・休息", location: "池袋", duration: "1 小時 30 分鐘", attractionId: "hotel-checkin", transportToNext: T("train", 30, { transfers: 0, brief: "丸之內線 池袋→銀座", route: "步行約 10 分到池袋站 → 東京地鐵丸之內線往荻窪方向到「銀座」約 18 分（不轉車）→ 步行約 5 分到銀座 7-7-7 GINZA777 ADC 大樓。", fare: "約 ¥210" }) },
             { type: "meal", startTime: "18:30", endTime: "20:30", title: "晚餐", location: "銀座", duration: "2 小時", restaurantId: "ushigoro-s-ginza", restaurantAltIds: [] },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:00", endTime: "11:30", title: "麻布台之丘", location: "麻布台", duration: "2 小時 30 分鐘", attractionId: "azabudai-hills", transportToNext: T("walk", 8) },
-            { type: "meal", startTime: "12:00", endTime: "13:30", title: "午餐", location: "麻布台", duration: "1 小時 30 分鐘", restaurantId: "pizzeria-azabudai", restaurantAltIds: ["roppongi-teishoku"], transportToNext: T("walk", 10) },
-            { type: "attraction", startTime: "15:00", endTime: "17:30", title: "teamLab Borderless", location: "麻布台", duration: "2 小時 30 分鐘", attractionId: "teamlab-borderless", transportToNext: T("train", 20, { transfers: 0 }) },
+            { type: "attraction", startTime: "09:00", endTime: "11:30", title: "麻布台之丘", location: "麻布台", duration: "2 小時 30 分鐘", attractionId: "azabudai-hills", transportToNext: T("walk", 8, { brief: "麻布台之丘園區內", route: "同在麻布台之丘園區內步行。" }) },
+            { type: "meal", startTime: "12:00", endTime: "13:30", title: "午餐", location: "麻布台", duration: "1 小時 30 分鐘", restaurantId: "pizzeria-azabudai", restaurantAltIds: ["roppongi-teishoku"], transportToNext: T("walk", 10, { brief: "麻布台之丘園區內", route: "同在麻布台之丘園區內步行到 teamLab Borderless 入口。" }) },
+            { type: "attraction", startTime: "15:00", endTime: "17:30", title: "teamLab Borderless", location: "麻布台", duration: "2 小時 30 分鐘", attractionId: "teamlab-borderless", transportToNext: T("train", 20, { transfers: 0, brief: "日比谷線 神谷町→銀座", route: "步行約 5 分到東京地鐵日比谷線「神谷町」站（與麻布台之丘直結）→ 往北千住方向到「銀座」約 7 分（不轉車）→ A2 出口步行約 5 分到交詢大樓。", fare: "約 ¥180" }) },
             { type: "meal", startTime: "18:30", endTime: "20:15", title: "晚餐（最後點餐 20:30）", location: "銀座", duration: "1 小時 45 分鐘", restaurantId: "imahan-ginza", restaurantAltIds: [] },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:30", endTime: "11:00", title: "HARAKADO", location: "原宿", duration: "1 小時 30 分鐘", attractionId: "harakado", transportToNext: T("walk", 5) },
-            { type: "attraction", startTime: "11:00", endTime: "12:15", title: "表參道", location: "表參道", duration: "1 小時 15 分鐘", attractionId: "omotesando", transportToNext: T("train", 15, { transfers: 1 }) },
-            { type: "meal", startTime: "12:30", endTime: "14:00", title: "午餐", location: "惠比壽", duration: "1 小時 30 分鐘", restaurantId: "peter-luger-ginza", restaurantAltIds: [], transportToNext: T("train", 10, { transfers: 0 }) },
-            { type: "attraction", startTime: "14:15", endTime: "14:50", title: "澀谷大路口", location: "澀谷", duration: "35 分鐘", attractionId: "shibuya-crossing", transportToNext: T("walk", 5) },
-            { type: "attraction", startTime: "15:00", endTime: "17:30", title: "SHIBUYA SKY（15:00 入場・看夕陽）", location: "澀谷", duration: "2 小時 30 分鐘", attractionId: "shibuya-sky", transportToNext: T("train", 25, { transfers: 0 }) },
+            { type: "attraction", startTime: "09:30", endTime: "11:00", title: "HARAKADO", location: "原宿", duration: "1 小時 30 分鐘", attractionId: "harakado", transportToNext: T("walk", 5, { brief: "步行・表參道大道", route: "從神宮前交叉點沿表參道大道往青山方向步行。" }) },
+            { type: "attraction", startTime: "11:00", endTime: "12:15", title: "表參道", location: "表參道", duration: "1 小時 15 分鐘", attractionId: "omotesando", transportToNext: T("train", 20, { transfers: 0, brief: "JR 山手線 原宿→惠比壽", route: "步行約 8 分到 JR「原宿」站 → 山手線往澀谷・品川方向 2 站到「惠比壽」約 5 分 → 依店址步行約 5–10 分。趕時間可搭計程車，約 10 分、約 ¥1,500。", fare: "約 ¥150–170" }) },
+            { type: "meal", startTime: "12:30", endTime: "14:00", title: "午餐", location: "惠比壽", duration: "1 小時 30 分鐘", restaurantId: "peter-luger-ginza", restaurantAltIds: [], transportToNext: T("train", 10, { transfers: 0, brief: "JR 山手線 惠比壽→澀谷", route: "回 JR「惠比壽」站 → 山手線往新宿方向 1 站到「澀谷」約 2 分 → 八公口出站就是澀谷大路口。", fare: "約 ¥150" }) },
+            { type: "attraction", startTime: "14:15", endTime: "14:50", title: "澀谷大路口", location: "澀谷", duration: "35 分鐘", attractionId: "shibuya-crossing", transportToNext: T("walk", 5, { brief: "步行到澀谷 SCRAMBLE SQUARE", route: "步行到澀谷 SCRAMBLE SQUARE，14F 是 SHIBUYA SKY 入口，搭電梯直上 45F 展望台。" }) },
+            { type: "attraction", startTime: "15:00", endTime: "17:30", title: "SHIBUYA SKY（15:00 入場・看夕陽）", location: "澀谷", duration: "2 小時 30 分鐘", attractionId: "shibuya-sky", transportToNext: T("train", 25, { transfers: 0, brief: "JR 澀谷→新宿", route: "JR「澀谷」站 → 埼京線／湘南新宿線往新宿約 5 分（或山手線約 7 分）→ 從新宿站西口往大ガード方向步行約 10 分到西新宿 7-16-12 YS 大樓。", fare: "約 ¥170–180" }) },
             { type: "meal", startTime: "18:00", endTime: "20:00", title: "晚餐", location: "西新宿", duration: "2 小時", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [] },
         ] },
     { items: [
-            { type: "attraction", startTime: "08:45", endTime: "09:20", title: "從 Dormy Inn 出發：步行到西武池袋站 → 西武池袋線往豐島園", location: "池袋 → 豐島園", duration: "約 35 分鐘", attractionId: "route-hotel-toshimaen", transportToNext: T("walk", 2) },
-            { type: "attraction", startTime: "09:30", endTime: "12:00", title: "哈利波特製作之旅（09:30 入場・Magical Winter 首日）", location: "豐島園", duration: "2 小時 30 分鐘", attractionId: "wb-studio-tour-tokyo", transportToNext: T("walk", 2) },
-            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐（館內）", location: "豐島園", duration: "1 小時", restaurantId: "wb-studio-food-hall", restaurantAltIds: [], transportToNext: T("walk", 2) },
-            { type: "attraction", startTime: "13:00", endTime: "17:00", title: "哈利波特製作之旅（下半場・商店）", location: "豐島園", duration: "4 小時", attractionId: "wb-studio-tour-tokyo", transportToNext: T("train", 30, { transfers: 0 }) },
-            { type: "meal", startTime: "17:40", endTime: "18:30", title: "簡易晚餐（拉麵）", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: ["omoide-yokocho"], transportToNext: T("walk", 7) },
+            { type: "attraction", startTime: "08:45", endTime: "09:20", title: "從 Dormy Inn 出發：步行到西武池袋站 → 西武池袋線往豐島園", location: "池袋 → 豐島園", duration: "約 35 分鐘", attractionId: "route-hotel-toshimaen", transportToNext: T("walk", 2, { brief: "豐島園站→影城", route: "豐島園站出站步行約 2 分到華納兄弟東京影城入口。" }) },
+            { type: "attraction", startTime: "09:30", endTime: "12:00", title: "哈利波特製作之旅（09:30 入場・Magical Winter 首日）", location: "豐島園", duration: "2 小時 30 分鐘", attractionId: "wb-studio-tour-tokyo", transportToNext: T("walk", 2, { brief: "館內", route: "影城館內步行到 Food Hall／Backlot Café。" }) },
+            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐（館內）", location: "豐島園", duration: "1 小時", restaurantId: "wb-studio-food-hall", restaurantAltIds: [], transportToNext: T("walk", 2, { brief: "館內", route: "回到展區繼續參觀。" }) },
+            { type: "attraction", startTime: "13:00", endTime: "17:00", title: "哈利波特製作之旅（下半場・商店）", location: "豐島園", duration: "4 小時", attractionId: "wb-studio-tour-tokyo", transportToNext: T("train", 35, { transfers: 0, brief: "大江戶線 豐島園→新宿西口", route: "豐島園站搭都營大江戶線往都廳前方向到「新宿西口」約 25 分（不轉車）→ 往歌舞伎町步行約 5–8 分到たかはし拉麵。", fare: "約 ¥280" }) },
+            { type: "meal", startTime: "17:40", endTime: "18:30", title: "簡易晚餐（拉麵）", location: "歌舞伎町", duration: "50 分鐘", restaurantId: "takahashi-ramen-shinjuku", restaurantAltIds: ["omoide-yokocho"], transportToNext: T("walk", 7, { brief: "步行到新宿站東口", route: "從歌舞伎町經新宿大道步行到 JR 新宿站東口旁的 Alpen TOKYO（新宿 3-23-7）。" }) },
             { type: "attraction", startTime: "18:40", endTime: "20:40", title: "Alpen TOKYO 購物（營業到 22:00）", location: "新宿東口", duration: "2 小時", attractionId: "alpen-tokyo" },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:30", endTime: "12:00", title: "豐洲千客萬來", location: "豐洲", duration: "2 小時 30 分鐘", attractionId: "toyosu-senkyaku", transportToNext: T("walk", 5) },
-            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "豐洲", duration: "1 小時", restaurantId: "toyosu-sushi-yamato", restaurantAltIds: [], transportToNext: T("train", 20, { transfers: 1 }) },
-            { type: "attraction", startTime: "14:00", endTime: "17:15", title: "銀座街區", location: "銀座", duration: "3 小時 15 分鐘", attractionId: "ginza-district", transportToNext: T("walk", 5) },
-            { type: "attraction", startTime: "17:20", endTime: "17:50", title: "前往小石川後樂園：有樂町線 銀座一丁目 → 飯田橋，步行到西門", location: "銀座 → 飯田橋", duration: "約 30 分鐘", attractionId: "route-ginza-koishikawa", transportToNext: T("walk", 1) },
-            { type: "attraction", startTime: "18:00", endTime: "19:30", title: "小石川後樂園 夜間賞楓（18:00 西門入園、東門出園）", location: "飯田橋・後樂園", duration: "1 小時 30 分鐘", attractionId: "koishikawa-korakuen-night", transportToNext: T("walk", 5) },
+            { type: "attraction", startTime: "09:30", endTime: "12:00", title: "豐洲千客萬來", location: "豐洲", duration: "2 小時 30 分鐘", attractionId: "toyosu-senkyaku", transportToNext: T("walk", 5, { brief: "豐洲市場園區內", route: "豐洲市場園區內步行。" }) },
+            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "豐洲", duration: "1 小時", restaurantId: "toyosu-sushi-yamato", restaurantAltIds: [], transportToNext: T("train", 25, { transfers: 1, brief: "百合海鷗號→有樂町線 銀座一丁目", route: "百合海鷗號「市場前」→「豐洲」約 3 分 → 轉東京地鐵有樂町線往和光市方向到「銀座一丁目」約 8 分 → 出站就是銀座中央通り。", fare: "約 ¥190＋¥180" }) },
+            { type: "attraction", startTime: "14:00", endTime: "17:15", title: "銀座街區", location: "銀座", duration: "3 小時 15 分鐘", attractionId: "ginza-district", transportToNext: T("walk", 5, { brief: "步行到銀座一丁目站", route: "步行到有樂町線「銀座一丁目」站。" }) },
+            { type: "attraction", startTime: "17:20", endTime: "17:50", title: "前往小石川後樂園：有樂町線 銀座一丁目 → 飯田橋，步行到西門", location: "銀座 → 飯田橋", duration: "約 30 分鐘", attractionId: "route-ginza-koishikawa", transportToNext: T("walk", 1, { brief: "西門排隊", route: "在小石川後樂園西門排隊，18:00 開園入場。" }) },
+            { type: "attraction", startTime: "18:00", endTime: "19:30", title: "小石川後樂園 夜間賞楓（18:00 西門入園、東門出園）", location: "飯田橋・後樂園", duration: "1 小時 30 分鐘", attractionId: "koishikawa-korakuen-night", transportToNext: T("walk", 5, { brief: "東門出園→水道橋一帶", route: "從東門出園，步行到東京巨蛋城／水道橋站一帶。" }) },
             { type: "meal", startTime: "19:45", endTime: "20:30", title: "晚餐從簡（東門出園後，後樂園・水道橋一帶）", location: "後樂園・水道橋", duration: "45 分鐘", restaurantId: "iidabashi-quick-dinner", restaurantAltIds: [] },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:00", endTime: "10:00", title: "上野恩賜公園", location: "上野", duration: "1 小時", attractionId: "ueno-park", transportToNext: T("walk", 12) },
-            { type: "attraction", startTime: "10:30", endTime: "11:30", title: "秋葉原電器街", location: "秋葉原", duration: "1 小時", attractionId: "akihabara", transportToNext: T("walk", 8) },
-            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "秋葉原", duration: "1 小時", restaurantId: "ameyoko-kaisendon", restaurantAltIds: ["akihabara-yoshoku"], transportToNext: T("train", 15, { transfers: 0 }) },
-            { type: "attraction", startTime: "13:20", endTime: "14:30", title: "江戶東京博物館", location: "兩國", duration: "1 小時 10 分鐘", attractionId: "edo-tokyo-museum", transportToNext: T("train", 15, { transfers: 1 }) },
-            { type: "attraction", startTime: "14:50", endTime: "15:50", title: "淺草寺・仲見世通り", location: "淺草", duration: "1 小時", attractionId: "sensoji", transportToNext: T("walk", 10) },
-            { type: "attraction", startTime: "16:10", endTime: "18:00", title: "淺草Rockza（16:10 場次）", location: "淺草", duration: "1 小時 50 分鐘", attractionId: "asakusa-rockza", transportToNext: T("walk", 8) },
+            { type: "attraction", startTime: "09:00", endTime: "10:00", title: "上野恩賜公園", location: "上野", duration: "1 小時", attractionId: "ueno-park", transportToNext: T("train", 12, { transfers: 0, brief: "JR 上野→秋葉原", route: "步行約 5 分到 JR「上野」站 → 山手線或京濱東北線往東京方向 2 站到「秋葉原」約 4 分 → 電器街口出站。", fare: "約 ¥150" }) },
+            { type: "attraction", startTime: "10:30", endTime: "11:30", title: "秋葉原電器街", location: "秋葉原", duration: "1 小時", attractionId: "akihabara", transportToNext: T("walk", 8, { brief: "秋葉原步行／JR 1 站到御徒町", route: "在秋葉原吃洋食就步行即可；要吃阿美橫丁海鮮丼，搭 JR 秋葉原→御徒町 1 站約 2 分（約 ¥150），或沿高架橋下步行約 15 分。" }) },
+            { type: "meal", startTime: "12:00", endTime: "13:00", title: "午餐", location: "秋葉原", duration: "1 小時", restaurantId: "ameyoko-kaisendon", restaurantAltIds: ["akihabara-yoshoku"], transportToNext: T("train", 15, { transfers: 0, brief: "JR 總武線 秋葉原→兩國", route: "JR「秋葉原」站搭總武線（黃色，各站停車）往千葉方向 2 站到「兩國」約 4 分 → 西口步行約 3 分到江戶東京博物館。從阿美橫丁出發則搭都營大江戶線「上野御徒町」→「兩國」約 10 分，A4 出口就在博物館旁。", fare: "約 ¥150（大江戶線約 ¥220）" }) },
+            { type: "attraction", startTime: "13:20", endTime: "14:30", title: "江戶東京博物館", location: "兩國", duration: "1 小時 10 分鐘", attractionId: "edo-tokyo-museum", transportToNext: T("train", 20, { transfers: 1, brief: "JR 兩國→淺草橋→淺草線 淺草", route: "JR「兩國」站搭總武線往御茶之水方向 2 站到「淺草橋」約 3 分 → 轉都營淺草線往押上方向 3 站到「淺草」約 5 分 → A4 出口步行約 5 分到雷門。也可搭計程車約 10–15 分、約 ¥1,500–2,000。", fare: "約 ¥150＋¥180" }) },
+            { type: "attraction", startTime: "14:50", endTime: "15:50", title: "淺草寺・仲見世通り", location: "淺草", duration: "1 小時", attractionId: "sensoji", transportToNext: T("walk", 10, { brief: "步行到淺草六區", route: "從仲見世通り往西步行到淺草六區（ROX 一帶）的淺草Rockza。" }) },
+            { type: "attraction", startTime: "16:10", endTime: "18:00", title: "淺草Rockza（16:10 場次）", location: "淺草", duration: "1 小時 50 分鐘", attractionId: "asakusa-rockza", transportToNext: T("walk", 8, { brief: "淺草六區步行", route: "淺草六區周邊步行到晚餐店家。" }) },
             { type: "meal", startTime: "18:15", endTime: "19:45", title: "晚餐", location: "淺草", duration: "1 小時 30 分鐘", restaurantId: "asakusa-gyudon", restaurantAltIds: ["asakusa-imahan"] },
         ] },
     { items: [
-            { type: "attraction", startTime: "09:15", endTime: "10:15", title: "雜司谷鬼子母神堂（早上先退房、行李寄放飯店）", location: "雜司谷", duration: "1 小時", attractionId: "zoshigaya-kishimojin", transportToNext: T("train", 10, { transfers: 0 }) },
-            { type: "attraction", startTime: "10:30", endTime: "11:45", title: "西武池袋本店・伴手禮購物", location: "池袋東口", duration: "1 小時 15 分鐘", attractionId: "seibu-ikebukuro", transportToNext: T("walk", 3) },
-            { type: "meal", startTime: "11:45", endTime: "12:30", title: "午餐（12:30 回飯店取行李）", location: "池袋", duration: "45 分鐘", restaurantId: "ikebukuro-station-lunch", restaurantAltIds: [], transportToNext: T("walk", 5) },
-            { type: "attraction", startTime: "12:35", endTime: "14:10", title: "取行李 → JR 山手線到日暮里 → 京成 Skyliner 到空港第2ビル", location: "池袋 → 成田機場", duration: "約 1 小時 35 分鐘", attractionId: "route-hotel-narita", transportToNext: T("walk", 5) },
+            { type: "attraction", startTime: "09:15", endTime: "10:15", title: "雜司谷鬼子母神堂（早上先退房、行李寄放飯店）", location: "雜司谷", duration: "1 小時", attractionId: "zoshigaya-kishimojin", transportToNext: T("train", 15, { transfers: 0, brief: "副都心線 雜司谷→池袋", route: "步行約 5 分到東京地鐵副都心線「雜司谷」站 → 往池袋方向 1 站約 2 分 → 池袋站東口直結西武池袋本店。也可以沿明治通步行約 20 分。", fare: "約 ¥180" }) },
+            { type: "attraction", startTime: "10:30", endTime: "11:45", title: "西武池袋本店・伴手禮購物", location: "池袋東口", duration: "1 小時 15 分鐘", attractionId: "seibu-ikebukuro", transportToNext: T("walk", 3, { brief: "池袋站周邊", route: "百貨餐廳樓層或池袋站周邊步行。" }) },
+            { type: "meal", startTime: "11:45", endTime: "12:30", title: "午餐（12:30 回飯店取行李）", location: "池袋", duration: "45 分鐘", restaurantId: "ikebukuro-station-lunch", restaurantAltIds: [], transportToNext: T("walk", 5, { brief: "步行回飯店", route: "步行約 10 分回 Dormy Inn 池袋取行李。" }) },
+            { type: "attraction", startTime: "12:35", endTime: "14:10", title: "取行李 → JR 山手線到日暮里 → 京成 Skyliner 到空港第2ビル", location: "池袋 → 成田機場", duration: "約 1 小時 35 分鐘", attractionId: "route-hotel-narita", transportToNext: T("walk", 5, { brief: "空港第2ビル站→第 2 航廈", route: "空港第2ビル站直結第 2 航廈出境大廳，往中華航空櫃台報到。" }) },
             { type: "attraction", startTime: "14:10", endTime: "15:00", title: "抵達成田機場第 2 航廈（15:00 前）・CI 105 報到", location: "成田機場", duration: "50 分鐘", attractionId: "narita-departure" },
         ] },
 ];
@@ -1175,7 +1176,7 @@ function useToast() { return useContext(ToastContext); }
    to localStorage (front-end state only, per Phase-1 spec)
    ============================================================ */
 const TripContext = createContext(null);
-const TRIP_KEY = "tokyo6d:trip:v2";
+const TRIP_KEY = "tokyo6d:trip:v3";
 function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         try {
@@ -1830,6 +1831,26 @@ function WeatherRow({ weather }) {
         isClimate && React.createElement("div", { style: { fontSize: ".72rem", color: "var(--ink-faint)", marginTop: 4 } }, "\u51FA\u767C\u65E5\u671F\u8F03\u9060\uFF0C\u76EE\u524D\u5C1A\u7121\u53EF\u9760\u7684\u9010\u6642\u9810\u5831\uFF1B\u4EE5\u4E0A\u70BA\u904E\u53BB 5 \u5E74\u540C\u65E5\u671F\u7684\u6B77\u53F2\u6C23\u5019\u5E73\u5747\uFF0C\u5F85\u63A5\u8FD1\u51FA\u767C\u65E5\u671F\u5F8C\u5C07\u81EA\u52D5\u66F4\u65B0\u70BA\u5373\u6642\u9810\u5831\u3002")));
 }
 /* ---- Transport ---- */
+function HotelLegRow({ leg, label }) {
+    if (!leg)
+        return null;
+    return (React.createElement("div", { className: "tl-row", style: { paddingBottom: 6 } },
+        React.createElement("div", { className: "tl-dot is-transit" }),
+        React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 10, padding: "9px 0 9px 2px", color: "var(--ink-soft)", fontSize: ".82rem" } },
+            React.createElement(Icon, { name: "train", size: 15, style: { flexShrink: 0, marginTop: 2 } }),
+            React.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 3 } },
+                React.createElement("span", null,
+                    label,
+                    " ",
+                    leg.time,
+                    "\u30FB\u7D04 ",
+                    leg.min,
+                    " \u5206\u9418",
+                    React.createElement("b", { style: { color: "var(--ink)", fontWeight: 600 } }, `・${leg.brief}`)),
+                React.createElement("span", { style: { fontSize: ".78rem", color: "var(--ink-faint)", lineHeight: 1.5 } },
+                    leg.route,
+                    leg.fare ? `（車資${leg.fare}）` : "")))));
+}
 function TransportCard({ transport, toLabel, realRoute, realLoading }) {
     if (!transport)
         return null;
@@ -1837,15 +1858,20 @@ function TransportCard({ transport, toLabel, realRoute, realLoading }) {
     const url = getMapsProvider().directionsUrl({ label: toLabel }, effective.mode);
     return (React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "9px 0 9px 2px", color: "var(--ink-soft)", fontSize: ".82rem" } },
         React.createElement(Icon, { name: effective.mode === "walk" ? "walk" : "train", size: 15, style: { flexShrink: 0 } }),
-        React.createElement("span", null,
-            "\u524D\u5F80\u4E0B\u4E00\u7AD9\u30FB",
-            effective.mode === "walk" ? "步行" : "電車",
-            " \u7D04 ",
-            effective.durationMin,
-            " \u5206\u9418",
-            effective.transfers ? `・${effective.transfers} 次轉乘` : "",
-            effective.distanceKm != null && `・${effective.distanceKm} km`,
-            realLoading && React.createElement(Icon, { name: "refresh", size: 11, className: "spin", style: { marginLeft: 6 } })),
+        React.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 3 } },
+            React.createElement("span", null,
+                "\u524D\u5F80\u4E0B\u4E00\u7AD9\u30FB",
+                effective.mode === "walk" ? "步行" : "電車",
+                " \u7D04 ",
+                effective.durationMin,
+                " \u5206\u9418",
+                effective.transfers ? `・${effective.transfers} 次轉乘` : "",
+                effective.distanceKm != null && `・${effective.distanceKm} km`,
+                transport.brief && React.createElement("b", { style: { color: "var(--ink)", fontWeight: 600 } }, `・${transport.brief}`),
+                realLoading && React.createElement(Icon, { name: "refresh", size: 11, className: "spin", style: { marginLeft: 6 } })),
+            transport.route && React.createElement("span", { style: { fontSize: ".78rem", color: "var(--ink-faint)", lineHeight: 1.5 } },
+                transport.route,
+                transport.fare ? `（車資${transport.fare}）` : "")),
         React.createElement("span", { style: { flex: 1 } }),
         realRoute ? React.createElement(SourceTag, { source: "Google Routes" }) : React.createElement(DemoTag, null, "\u63A8\u7B97\u6642\u9593"),
         React.createElement("button", { className: "btn btn-ghost btn-sm", onClick: () => window.open(url, "_blank", "noopener,noreferrer") },
@@ -2845,6 +2871,7 @@ function DayTimelinePage({ dayNumber }) {
                     React.createElement(ErrorRetryBanner, { message: "Google Maps \u66AB\u6642\u7121\u6CD5\u53D6\u5F97\u8DEF\u7DDA\uFF0C\u5DF2\u986F\u793A\u63A8\u7B97\u4EA4\u901A\u6642\u9593" }))),
             React.createElement(HotelOriginRow, { trip: t, day: day }),
             React.createElement("div", { className: "timeline" },
+                React.createElement(HotelLegRow, { leg: (DAY_HOTEL_LEGS[day.dayNumber - 1] || {}).out, label: "\u5F9E\u98EF\u5E97\u51FA\u767C" }),
                 day.items.map((item, i) => (React.createElement(React.Fragment, { key: item.id },
                     item.type === "attraction"
                         ? React.createElement(TimelineAttractionRow, { item: item, dayNumber: day.dayNumber, index: i, total: day.items.length, onNavigate: navigate })
@@ -2852,6 +2879,7 @@ function DayTimelinePage({ dayNumber }) {
                     item.transportToNext && (React.createElement("div", { className: "tl-row", style: { paddingBottom: 6 } },
                         React.createElement("div", { className: "tl-dot is-transit" }),
                         React.createElement(TransportCard, { transport: item.transportToNext, toLabel: day.items[i + 1] ? day.items[i + 1].title : day.subtitle, realRoute: directions.routes[item.id], realLoading: directions.loading })))))),
+                React.createElement(HotelLegRow, { leg: (DAY_HOTEL_LEGS[day.dayNumber - 1] || {}).back, label: "\u56DE\u98EF\u5E97" }),
                 day.items.length === 0 && (React.createElement(EmptyState, { icon: "route", title: "\u4ECA\u5929\u9084\u6C92\u6709\u884C\u7A0B\u9805\u76EE", sub: "\u4F60\u53EF\u4EE5\u6309\u300C\u91CD\u65B0\u898F\u5283\u4ECA\u5929\u300D\u91CD\u65B0\u7522\u751F\u5EFA\u8B70\u884C\u7A0B\u3002" }))),
             React.createElement("div", { className: "hairline", style: { margin: "32px 0 20px" } }),
             React.createElement(SectionHeading, { eyebrow: "Nearby", title: "\u9644\u8FD1\u771F\u5BE6\u9910\u5EF3\u63A8\u85A6", sub: "\u4F9D Google Places \u641C\u5C0B\u7576\u65E5\u5340\u57DF\u5167\u8A55\u50F9\u8F03\u9AD8\u7684\u9910\u5EF3" }),
