@@ -531,7 +531,7 @@ const ATTRACTIONS = [
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Tokyo+Dream+Park+Koto",
         imageUrl: "/mock/images/tokyo-dream-park.jpg", isNew: true, indoorOutdoor: "mixed", lat: 35.6480, lng: 139.8390 },
     { id: "asakusa-rockza", name: "淺草Rockza", nameEn: "Asakusa Rock-za", area: "淺草", emoji: "🎭",
-        description: "淺草六區昭和風情僅存的歌舞劇場之一，以現場歌舞與喜劇演出聞名，是體驗淺草老派娛樂文化的獨特場所。這次排在 16:10–18:00 場次，建議提早 10 分鐘到場購票入場。＊限 18 歲以上入場，恕不接待未成年旅客。",
+        description: "淺草六區昭和風情僅存的歌舞劇場之一，以現場歌舞與喜劇演出聞名，是體驗淺草老派娛樂文化的獨特場所。這次排在 14:10–16:00 場次（一天 5 場、每場約 100 分＋休息 20 分，請出發前到官網確認當天時刻），建議提早 10 分鐘到場購票入場。＊限 18 歲以上入場，恕不接待未成年旅客。",
         duration: "1 小時 30 分鐘", ticketRequired: true, ticketPrice: "票價待確認", reservationRequired: false,
         officialUrl: "https://placeholder.tokyo6d.app/official/asakusa-rockza",
         ticketUrl: "https://placeholder.tokyo6d.app/tickets/asakusa-rockza",
@@ -574,6 +574,18 @@ const ATTRACTIONS = [
         officialUrl: "https://www.enjoytokyo.jp/event/2077512/",
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Yodobashi+Shinjuku+Nishiguchi+Ekimae+Building",
         imageUrl: "/mock/images/storydive-gaudi.jpg", isNew: true, indoorOutdoor: "indoor", lat: 35.6920, lng: 139.6985 },
+    { id: "ueno-xmas-advent", name: "上野聖誕市集 東京クリスマスアドベント Sponsored by au PAY（袴腰広場）", nameEn: "Tokyo Christmas Advent (Ueno Park Hakamagoshi Plaza)", area: "上野", emoji: "🎄",
+        description: "2026 年都內最早開幕的聖誕市集。11/6 起在上野恩賜公園南口的袴腰広場開放，每天 12:00–23:00，免費入場；30 間以上美食、熱紅酒與雜貨小屋，還有約 100 尊聖誕老人裝置「Festa de Santa」。不忍池周邊會場 11/18 才開，這趟只逛得到袴腰広場。日落後點燈氣氛最好，晚餐直接吃攤位（德國香腸、燉菜、熱紅酒等）。週日晚上人多，建議先佔位再輪流買。",
+        duration: "2 小時", ticketRequired: false, reservationRequired: false,
+        officialUrl: "https://prtimes.jp/main/html/rd/p/000000001.000192190.html",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Ueno+Park+Hakamagoshi+Hiroba",
+        imageUrl: "/mock/images/ueno-park.jpg", isNew: true, isHot: true, indoorOutdoor: "outdoor", lat: 35.7110, lng: 139.7737 },
+    { id: "azumabashi-sunset", name: "吾妻橋・隅田川 晴空塔夕景", nameEn: "Azumabashi Bridge Skytree Sunset View", area: "淺草", emoji: "🌇",
+        description: "雷門往東走幾分鐘就是吾妻橋，可以同時拍到晴空塔與朝日啤酒大樓的金色火焰。11 月中旬日落約 16:35，看完夕陽直接從淺草站搭銀座線到上野。",
+        duration: "30 分鐘", ticketRequired: false, reservationRequired: false,
+        officialUrl: "https://www.google.com/maps/search/?api=1&query=Azumabashi+Bridge",
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Azumabashi+Bridge",
+        imageUrl: "/mock/images/sensoji.jpg", indoorOutdoor: "outdoor", lat: 35.7106, lng: 139.7988 },
     { id: "roppongi-keyakizaka", name: "六本木之丘 けやき坂聖誕點燈（Keyakizaka Illumination）", nameEn: "Roppongi Hills Keyakizaka Illumination", area: "六本木", emoji: "✨",
         description: "六本木之丘冬季代表景色，約 400 公尺的けやき坂通り兩旁行道樹掛滿白藍色 LED 燈，坡道盡頭可以同時拍到東京鐵塔，是東京最經典的聖誕點燈之一。ROPPONGI HILLS CHRISTMAS 2026：2026/11/5（四）～12/25（五），17:00–22:00 點燈（初日與人潮多時可能調整），免費。11/11（三）傍晚 teamLab 之後 17:45 左右抵達，天色已暗、點燈剛開始，平日人潮也比週末少，散步拍照約 40 分鐘後，18:25 搭日比谷線直達銀座趕 19:00 的晚餐。最佳拍照點：けやき坂通り中段往東京鐵塔方向；六本木之丘大屋頂廣場（66 廣場）一帶也有聖誕裝飾。交通：都營大江戶線／東京地鐵日比谷線「六本木」站步行約 5–8 分。",
         duration: "1 小時", ticketRequired: false, reservationRequired: false,
@@ -1016,7 +1028,7 @@ const DAY_AREA_LABELS = [
 ];
 const DAY_SUBTITLES = [
     "CI 100 13:30 抵達成田 → 池袋 Dormy Inn 入住 → 銀座燒肉晚餐", "國立新美術館 羅浮宮展 → 麻布台之丘 → teamLab → けやき坂點燈 → 銀座今半晚餐", "原宿 → 表參道 → 惠比壽 → SHIBUYA SKY → 新宿牛舌晚餐", "哈利波特製作之旅 Magical Winter 首日（09:30 入場・全天）→ 新宿拉麵 → Alpen TOKYO 購物",
-    "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "東京都美術館 奧塞展 → 阿美橫丁 → 兩國 → 淺草寺 → Rockza → 新宿高第 VR", "退房 → 雜司谷鬼子母神 → 西武池袋購物・午餐 → Skyliner 到成田 ✈ CI 105",
+    "11/14（六）豐洲 → 銀座 → 小石川後樂園夜楓（晚餐從簡）", "東京都美術館 奧塞展 → 阿美橫丁 → 淺草寺 → Rockza → 上野聖誕市集 → 新宿高第 VR", "退房 → 雜司谷鬼子母神 → 西武池袋購物・午餐 → Skyliner 到成田 ✈ CI 105",
 ];
 const DAY_HOTEL_LEGS = [{ "out": null, "back": { "time": "22:00", "min": 30, "frm": "USHIGORO S. GINZA（銀座 7 丁目）", "brief": "丸之內線 銀座→池袋（不轉車）", "route": "從店家步行約 5 分到東京地鐵「銀座」站 → 搭丸之內線往池袋方向（終點站）約 18 分 → 池袋站往東口（35 號出口方向）出站 → 步行約 9 分回 Dormy Inn。", "fare": "約 ¥210", "alt": "計程車：約 25–35 分、約 ¥4,000–4,800（2 人分攤也划算）；吃完燒肉不想走路可以在銀座中央通攔車。" } }, { "out": { "time": "09:20", "min": 40, "brief": "副都心線→千代田線 乃木坂", "route": "步行約 10 分到池袋站 → 東京地鐵副都心線（急行）往澀谷方向到「明治神宮前〈原宿〉」約 10 分 → 站內轉千代田線往北千住方向 2 站到「乃木坂」約 4 分 → 6 號出口直結國立新美術館，10:00 開館前抵達。", "fare": "約 ¥210" }, "back": { "time": "20:45", "min": 30, "frm": "人形町今半 銀座店（銀座 6 丁目）", "brief": "丸之內線 銀座→池袋（不轉車）", "route": "從交詢大樓步行約 5 分到「銀座」站 A2 出口 → 丸之內線往池袋方向約 18 分（終點站）→ 池袋站東口出站 → 步行約 9 分回飯店。", "fare": "約 ¥210", "alt": "計程車：約 25–35 分、約 ¥4,000–4,800。" } }, { "out": { "time": "09:05", "min": 25, "brief": "副都心線 池袋→明治神宮前", "route": "步行約 10 分到池袋站 → 東京地鐵副都心線（急行／通勤急行）往澀谷方向到「明治神宮前〈原宿〉」約 10 分 → 7 號出口出站就是 HARAKADO。", "fare": "約 ¥210" }, "back": { "time": "20:00", "min": 30, "frm": "牛たんの檸檬 總本店（西新宿 7 丁目）", "brief": "JR 新宿→池袋（埼京線最快）", "route": "從店家往大ガード方向步行約 10 分到 JR 新宿站 → 搭埼京線（或湘南新宿線）往池袋約 5 分，山手線也可以（約 9 分）→ 池袋站東口出站 → 步行約 9 分回飯店。", "fare": "約 ¥180–200", "alt": "計程車：約 15–20 分、約 ¥2,300–2,800；西新宿 7 丁目到東池袋走明治通很順。" } }, { "out": null, "back": { "time": "20:40", "min": 25, "frm": "Alpen TOKYO（新宿 3 丁目）", "brief": "副都心線 新宿三丁目→池袋（不轉車）", "route": "從 Alpen TOKYO 步行約 3 分到東京地鐵副都心線「新宿三丁目」站 → 往池袋方向約 9 分（不轉車）→ 池袋站東口出站 → 步行約 9 分回飯店。購物袋多的話也可以走到 JR 新宿站東口（約 1 分），搭埼京線約 5 分到池袋。", "fare": "約 ¥180", "alt": "計程車：約 15–20 分、約 ¥2,500–3,000；買了大件運動用品時最省力。" } }, { "out": { "time": "08:40", "min": 50, "brief": "有樂町線 池袋→豐洲→百合海鷗號", "route": "步行約 10 分到池袋站 → 東京地鐵有樂町線往新木場方向到「豐洲」約 30 分（不轉車）→ 轉百合海鷗號 1 站到「市場前」約 3 分 → 步行約 3 分到千客萬來。", "fare": "約 ¥260＋¥190" }, "back": { "time": "20:30", "min": 25, "frm": "小石川後樂園 東門／後樂園・水道橋一帶晚餐", "brief": "丸之內線 後樂園→池袋（不轉車）", "route": "晚餐後步行到東京地鐵「後樂園」站 → 搭丸之內線往池袋方向約 10 分（不轉車，終點站）→ 池袋站東口出站 → 步行約 9 分回飯店。", "fare": "約 ¥180", "alt": "計程車：約 15 分、約 ¥2,200–2,600。" } }, { "out": { "time": "08:00", "min": 30, "brief": "JR 山手線 池袋→上野（公園口）", "route": "步行約 10 分到 JR 池袋站 → 山手線往田端・上野方向到「上野」約 17 分 → 公園口出站，穿過上野公園步行約 7 分到東京都美術館，08:30 前抵達。", "fare": "約 ¥210" }, "back": { "time": "20:30", "min": 20, "frm": "Storydive Theater WAHHHP（新宿西口）", "brief": "JR 新宿→池袋（埼京線最快）", "route": "從 Yodobashi 新宿西口站前大樓步行約 3 分到 JR 新宿站 → 搭埼京線／湘南新宿線往池袋約 5 分（或山手線約 9 分）→ 池袋站東口出站 → 步行約 9 分回飯店。", "fare": "約 ¥180–200", "alt": "計程車：約 15–20 分、約 ¥2,300–2,800；這天走得多，累了很值得。" } }, { "out": { "time": "09:00", "min": 15, "brief": "都電荒川線 東池袋四丁目→鬼子母神前", "route": "退房、行李寄放櫃台 → 步行約 15–20 分到鬼子母神；或搭都電荒川線（東京櫻電車）「東池袋四丁目」→「鬼子母神前」2 站約 5 分。", "fare": "約 ¥170（步行免費）" }, "back": null }];
 function T(mode, durationMin, extra = {}) { return { mode, durationMin, ...extra }; }
@@ -1060,11 +1072,11 @@ const DEMO_DAYS_TEMPLATE = [
         ] },
     { items: [
             { type: "attraction", startTime: "08:30", endTime: "11:30", title: "東京都美術館 開館100周年紀念「奧塞美術館收藏 活在當下的喜悅」（08:30 入場，依票券時段）", location: "上野公園", duration: "3 小時", attractionId: "tobikan-orsay", transportToNext: T("walk", 12, { brief: "穿過上野公園到阿美橫丁", route: "從東京都美術館往 JR 上野站方向穿過上野公園，下坡後沿中央通往阿美橫丁步行約 12–15 分。" }) },
-            { type: "meal", startTime: "11:45", endTime: "12:50", title: "午餐", location: "上野・阿美橫丁", duration: "1 小時 5 分鐘", restaurantId: "ameyoko-kaisendon", restaurantAltIds: [], transportToNext: T("train", 15, { transfers: 0, brief: "大江戶線 上野御徒町→兩國", route: "從阿美橫丁步行約 3 分到都營大江戶線「上野御徒町」站 → 往兩國・大門方向約 10 分到「兩國」（不轉車）→ A4 出口就在江戶東京博物館旁。", fare: "約 ¥220" }) },
-            { type: "attraction", startTime: "13:10", endTime: "14:30", title: "江戶東京博物館", location: "兩國", duration: "1 小時 10 分鐘", attractionId: "edo-tokyo-museum", transportToNext: T("train", 20, { transfers: 1, brief: "JR 兩國→淺草橋→淺草線 淺草", route: "JR「兩國」站搭總武線往御茶之水方向 2 站到「淺草橋」約 3 分 → 轉都營淺草線往押上方向 3 站到「淺草」約 5 分 → A4 出口步行約 5 分到雷門。也可搭計程車約 10–15 分、約 ¥1,500–2,000。", fare: "約 ¥150＋¥180" }) },
-            { type: "attraction", startTime: "14:50", endTime: "15:50", title: "淺草寺・仲見世通り", location: "淺草", duration: "1 小時", attractionId: "sensoji", transportToNext: T("walk", 10, { brief: "步行到淺草六區", route: "從仲見世通り往西步行到淺草六區（ROX 一帶）的淺草Rockza。" }) },
-            { type: "attraction", startTime: "16:10", endTime: "18:00", title: "淺草Rockza（16:10 場次）", location: "淺草", duration: "1 小時 50 分鐘", attractionId: "asakusa-rockza", transportToNext: T("walk", 8, { brief: "淺草六區步行", route: "淺草六區周邊步行到晚餐店家。" }) },
-            { type: "meal", startTime: "18:15", endTime: "19:15", title: "晚餐", location: "淺草", duration: "1 小時", restaurantId: "asakusa-gyudon", restaurantAltIds: ["asakusa-imahan"], transportToNext: T("train", 40, { transfers: 1, brief: "銀座線 淺草→神田→JR 中央線快速 新宿", route: "東京地鐵銀座線「淺草」往澀谷方向到「神田」約 11 分 → 轉 JR 中央線快速往新宿約 13 分 → 新宿站西口方向出站，步行約 3 分到 Yodobashi 新宿西口站前大樓 10F。", fare: "約 ¥180＋¥210" }) },
+            { type: "meal", startTime: "11:45", endTime: "12:40", title: "午餐", location: "上野・阿美橫丁", duration: "55 分鐘", restaurantId: "ameyoko-kaisendon", restaurantAltIds: [], transportToNext: T("train", 15, { transfers: 0, brief: "銀座線 上野廣小路→淺草", route: "從阿美橫丁步行約 3 分到東京地鐵銀座線「上野廣小路」站 → 往淺草方向約 7 分到終點「淺草」（不轉車）→ 1 號出口步行約 2 分到雷門。", fare: "約 ¥180" }) },
+            { type: "attraction", startTime: "13:00", endTime: "14:00", title: "淺草寺・仲見世通り", location: "淺草", duration: "1 小時", attractionId: "sensoji", transportToNext: T("walk", 10, { brief: "步行到淺草六區", route: "從仲見世通り往西步行到淺草六區（ROX 一帶）的淺草Rockza，建議 14:00 前到場購票。" }) },
+            { type: "attraction", startTime: "14:10", endTime: "16:00", title: "淺草Rockza（14:10 場次・請官網確認時刻）", location: "淺草", duration: "1 小時 50 分鐘", attractionId: "asakusa-rockza", transportToNext: T("walk", 8, { brief: "步行到吾妻橋", route: "從淺草六區往東經雷門通步行約 8 分到吾妻橋。" }) },
+            { type: "attraction", startTime: "16:10", endTime: "16:45", title: "吾妻橋・隅田川 晴空塔夕景（日落約 16:35）", location: "淺草", duration: "35 分鐘", attractionId: "azumabashi-sunset", transportToNext: T("train", 15, { transfers: 0, brief: "銀座線 淺草→上野", route: "從吾妻橋步行約 2 分到東京地鐵銀座線「淺草」站 → 往澀谷方向約 5 分到「上野」（不轉車）→ 7 號出口往上野公園方向步行約 3 分到袴腰広場（公園南口）。", fare: "約 ¥180" }) },
+            { type: "attraction", startTime: "17:00", endTime: "19:10", title: "上野聖誕市集 東京クリスマスアドベント（袴腰広場・晚餐吃攤位）", location: "上野公園", duration: "2 小時 10 分鐘", attractionId: "ueno-xmas-advent", transportToNext: T("train", 35, { transfers: 0, brief: "JR 山手線 上野→新宿", route: "從袴腰広場步行約 3 分到 JR 上野站（不忍口）→ 山手線往池袋・新宿方向約 25 分到「新宿」（不轉車）→ 西口出站，步行約 3 分到 Yodobashi 新宿西口站前大樓 10F，19:45 左右抵達。", fare: "約 ¥210" }) },
             { type: "attraction", startTime: "20:00", endTime: "20:30", title: "Storydive Theater WAHHHP「永遠なるガウディ」VR 追尋聖家堂的奇蹟（約 20 分）", location: "新宿西口", duration: "30 分鐘", attractionId: "storydive-gaudi" },
         ] },
     { items: [
@@ -1210,7 +1222,7 @@ function useToast() { return useContext(ToastContext); }
    to localStorage (front-end state only, per Phase-1 spec)
    ============================================================ */
 const TripContext = createContext(null);
-const TRIP_KEY = "tokyo6d:trip:v9";
+const TRIP_KEY = "tokyo6d:trip:v10";
 function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         try {
