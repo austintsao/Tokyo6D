@@ -1059,7 +1059,7 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "meal", startTime: "12:30", endTime: "14:00", title: "午餐（12:30 已訂位・2 人）", location: "惠比壽", duration: "1 小時 30 分鐘", restaurantId: "peter-luger-ginza", restaurantAltIds: [], transportToNext: T("train", 10, { transfers: 0, brief: "JR 山手線 惠比壽→澀谷", route: "回 JR「惠比壽」站 → 山手線往新宿方向 1 站到「澀谷」約 2 分 → 八公口出站就是澀谷大路口。", fare: "約 ¥150" }) },
             { type: "attraction", startTime: "14:15", endTime: "14:50", title: "澀谷大路口", location: "澀谷", duration: "35 分鐘", attractionId: "shibuya-crossing", transportToNext: T("walk", 5, { brief: "步行到澀谷 SCRAMBLE SQUARE", route: "步行到澀谷 SCRAMBLE SQUARE，14F 是 SHIBUYA SKY 入口，搭電梯直上 45F 展望台。" }) },
             { type: "attraction", startTime: "15:00", endTime: "17:55", title: "SHIBUYA SKY（15:00 入場・看夕陽和夜景，請確認票券時段）", location: "澀谷", duration: "2 小時 55 分鐘", attractionId: "shibuya-sky", transportToNext: T("train", 25, { transfers: 0, brief: "JR 澀谷→新宿", route: "17:55 離開 → JR「澀谷」站 → 埼京線／湘南新宿線往新宿約 5 分（或山手線約 7 分）→ 從新宿站西口往大ガード方向步行約 10 分到西新宿 7-16-12 YS 大樓，18:20–18:25 抵達。", fare: "約 ¥170–180" }) },
-            { type: "meal", startTime: "18:30", endTime: "19:45", title: "晚餐（18:30 已訂位・2 人・TableCheck）", location: "西新宿", duration: "1 小時 15 分鐘", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [], transportToNext: T("walk", 10, { brief: "步行到新宿西口 Yodobashi", route: "19:45 離開，從西新宿 7 丁目的店家往新宿站西口方向步行約 8–10 分，到 Yodobashi 新宿西口站前大樓（西新宿 1-10-1），搭電梯上 10F，趕 20:00 梯次。晚餐吃得比較久的話，可以改搭 20:30 梯次（最後受理 20:30）。", fare: "" }) },
+            { type: "meal", startTime: "18:30", endTime: "19:45", title: "晚餐（18:30 已訂位・2 人）", location: "西新宿", duration: "1 小時 15 分鐘", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [], transportToNext: T("walk", 10, { brief: "步行到新宿西口 Yodobashi", route: "19:45 離開，從西新宿 7 丁目的店家往新宿站西口方向步行約 8–10 分，到 Yodobashi 新宿西口站前大樓（西新宿 1-10-1），搭電梯上 10F，趕 20:00 梯次。晚餐吃得比較久的話，可以改搭 20:30 梯次（最後受理 20:30）。", fare: "" }) },
             { type: "attraction", startTime: "20:00", endTime: "20:30", title: "Storydive Theater WAHHHP「永遠なるガウディ」VR 追尋聖家堂的奇蹟（20:00 梯次・約 20 分）", location: "新宿西口", duration: "30 分鐘", attractionId: "storydive-gaudi" },
         ] },
     { items: [
@@ -1229,7 +1229,7 @@ function useToast() { return useContext(ToastContext); }
    to localStorage (front-end state only, per Phase-1 spec)
    ============================================================ */
 const TripContext = createContext(null);
-const TRIP_KEY = "tokyo6d:trip:v14";
+const TRIP_KEY = "tokyo6d:trip:v16";
 function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         try {
