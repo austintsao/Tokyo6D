@@ -1234,7 +1234,7 @@ function useToast() { return useContext(ToastContext); }
    to localStorage (front-end state only, per Phase-1 spec)
    ============================================================ */
 const TripContext = createContext(null);
-const TRIP_KEY = "tokyo6d:trip:v16";
+const TRIP_KEY = "tokyo6d:trip:v17";
 function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         try {
