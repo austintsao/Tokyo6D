@@ -1066,7 +1066,7 @@ const DEMO_DAYS_TEMPLATE = [
             { type: "attraction", startTime: "14:15", endTime: "15:40", title: "澀谷大路口＋Hikarie 11F SKY LOBBY（免費展望）", location: "澀谷", duration: "1 小時 25 分鐘", attractionId: "shibuya-hikarie-sky-lobby", transportToNext: T("train", 30, { transfers: 0, brief: "JR 澀谷→新宿，步行到都廳", route: "15:40 從 Hikarie 經 2F 連通道步行約 3 分到 JR「澀谷」站 → 埼京線／湘南新宿線往新宿約 5 分（或山手線約 7 分）→ 從新宿站西口經地下通道往都廳方向步行約 10–12 分到東京都廳第一本廳舍，16:10 前後抵達，走 1F 南側入口過安檢後搭專用電梯上 45F。", fare: "約 ¥170–180" }) },
             { type: "attraction", startTime: "16:10", endTime: "18:05", title: "東京都廳 南展望室（免費・45F 約 202m・看夕陽和夜景）", location: "西新宿", duration: "1 小時 55 分鐘", attractionId: "tocho-south-observatory", transportToNext: T("walk", 20, { brief: "步行 都廳→西新宿 7 丁目", route: "18:05 離開，從都廳往新宿站西口方向步行，過青梅街道往大ガード方向，約 18–20 分到西新宿 7-16-12 YS 大樓，18:25 前後抵達。不想走的話：都營大江戶線「都廳前」→「新宿西口」1 站約 2 分，再步行約 5 分。", fare: "" }) },
             { type: "meal", startTime: "18:30", endTime: "19:45", title: "晚餐（18:30 已訂位・2 人）", location: "西新宿", duration: "1 小時 15 分鐘", restaurantId: "gyutan-lemon-honten", restaurantAltIds: [], transportToNext: T("walk", 15, { brief: "步行到新宿西口 Yodobashi（VR）或新宿東口 Alpen", route: "選 A：19:45 離開，從西新宿 7 丁目的店家往新宿站西口方向步行約 8–10 分，到 Yodobashi 新宿西口站前大樓（西新宿 1-10-1），搭電梯上 10F，趕 20:00 梯次；晚餐吃得比較久的話，可以改 20:30 梯次（最後受理 20:30）。選 B：從店家穿過大ガード到新宿站東口方向步行約 12–15 分，到 Alpen TOKYO（新宿 3-23-7），20:00 前後抵達。", fare: "" }) },
-            { type: "attraction", startTime: "20:00", endTime: "22:00", title: "晚餐後二選一：A Storydive 高第 VR（20:00 梯次・約 20 分）／B Alpen TOKYO 購物（營業到 22:00）", location: "新宿西口／新宿東口", duration: "30 分鐘～2 小時", attractionId: "storydive-gaudi", optionAttractionIds: ["alpen-tokyo"], optionNote: "選 A 看完約 20:30；選 B 可以逛到 22:00 關門。時間夠也可以兩個都去：先看 20:00 梯次 VR，20:30 從新宿西口走約 8 分到東口 Alpen，逛到 22:00。11/13 晚上原本也排了 Alpen，這天去過的話 11/13 可以改成休息或其他行程。" },
+            { type: "attraction", startTime: "20:00", endTime: "22:00", title: "晚餐後二選一：高第 VR／Alpen TOKYO", location: "新宿西口／新宿東口", duration: "30 分鐘～2 小時", attractionId: "storydive-gaudi", optionAttractionIds: ["alpen-tokyo"], optionNote: "選 A 看完約 20:30；選 B 可以逛到 22:00 關門。時間夠也可以兩個都去：先看 20:00 梯次 VR，20:30 從新宿西口走約 8 分到東口 Alpen，逛到 22:00。11/13 晚上原本也排了 Alpen，這天去過的話 11/13 可以改成休息或其他行程。" },
         ] },
     { items: [
             { type: "attraction", startTime: "08:45", endTime: "09:20", title: "從 Dormy Inn 出發：步行到西武池袋站 → 西武池袋線往豐島園", location: "池袋 → 豐島園", duration: "約 35 分鐘", attractionId: "route-hotel-toshimaen", transportToNext: T("walk", 2, { brief: "豐島園站→影城", route: "豐島園站出站步行約 2 分到華納兄弟東京影城入口。" }) },
@@ -1235,7 +1235,7 @@ function useToast() { return useContext(ToastContext); }
    to localStorage (front-end state only, per Phase-1 spec)
    ============================================================ */
 const TripContext = createContext(null);
-const TRIP_KEY = "tokyo6d:trip:v18";
+const TRIP_KEY = "tokyo6d:trip:v19";
 function TripProvider({ children }) {
     const [trip, setTrip] = useState(() => {
         try {
